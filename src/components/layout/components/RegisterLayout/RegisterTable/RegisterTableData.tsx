@@ -1,12 +1,18 @@
-import fetchTableData from "@services/table.service";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import { TableData } from "src/types/tabledata";
 import DialogForm from "../../RegisterDialogForm";
 
-const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
+interface RegisterTableDataProps {
+    tableData: TableData[];
+}
+
+const RegisterTableData: React.FC<RegisterTableDataProps> = ({ tableData }) => {
+    const [selectedItem, setSelectedItem] = useState<TableData | null>(null);
     const [showDialog, setShowDialog] = useState(false);
 
-    const handleRegisterClick = () => {
+    const handleRegisterClick = (item: TableData) => {
+        setSelectedItem(item);
         setShowDialog(true);
     };
     const getStatusDialogRegister = (val: boolean) => {
@@ -35,9 +41,9 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
                             <div className="col-span-1">{item.paid}</div>
                             <div className="col-span-2">{item.payable}</div>
                             <div className="col-span-1 h-full flex justify-center items-center text-xs text-yellow-400 underline">
-                            <button onClick={handleRegisterClick}>Đăng ký</button>
+                            <button onClick={() => handleRegisterClick(item)}>Đăng ký</button>
                             </div>
-                        {showDialog && <DialogForm sendStatusDialog={getStatusDialogRegister} />}
+                            {showDialog && selectedItem && <DialogForm selectedItem={selectedItem} sendStatusDialog={getStatusDialogRegister} />}
                         </div>
                     </div>
                 </div>

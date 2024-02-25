@@ -1,5 +1,12 @@
+import { useEffect, useState } from "react";
+import { TableData } from "src/types/tabledata";
 
-const DialogForm = ({sendStatusDialog}: {sendStatusDialog: (val: boolean) => void}) => {
+interface DialogFormProps {
+    selectedItem: TableData;
+    sendStatusDialog: (val: boolean) => void;
+}
+
+const DialogForm: React.FC<DialogFormProps> = ({ selectedItem, sendStatusDialog }) => {
 
     const handleCancelClick = () => {
         sendStatusDialog(false)
@@ -14,45 +21,45 @@ const DialogForm = ({sendStatusDialog}: {sendStatusDialog: (val: boolean) => voi
                     <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
                         Tiểu khoản
                     </label>
-                    <input className="bg-neutral-800 py-1"/>
+                    <input className="bg-neutral-800 py-1 text-white" />
                 </div>
 
                 <div className="mb-2 flex items-center">
                     <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
                         Mã 
                     </label>
-                    <input className="bg-neutral-800 py-1"/>
+                    <input className="bg-neutral-800 py-1 text-white" value={selectedItem.id}/>
                 </div>
                 
                 <div className="mb-2 flex items-center">
                     <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
                         SL CK hưởng quyền
                     </label>
-                    <input className="bg-neutral-800 py-1"/>
+                    <input className="bg-neutral-800 py-1 text-white" value={selectedItem.slckhq}/>
                 </div>
                 <div className="mb-2 flex items-center">
                     <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
                         SL quyền sở hữu
                     </label>
-                    <input className="bg-neutral-800 py-1"/>
+                    <input className="bg-neutral-800 py-1 text-white" value={selectedItem.slqsh}/>
                 </div>
                 <div className="mb-2 flex items-center">
                     <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
                         Giá
                     </label>
-                    <input className="bg-neutral-800 py-1"/>
+                    <input className="bg-neutral-800 py-1 text-white" value={selectedItem.price}/>
                 </div>
                 <div className="mb-2 flex items-center">
                     <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
                         SL CK đã mua
                     </label>
-                    <input className="bg-neutral-800 py-1"/>
+                    <input className="bg-neutral-800 py-1 text-white" value={selectedItem.slckdm}/>
                 </div>
                 <div className="mb-2 flex items-center">
                     <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
                         SL CK còn được mua
                     </label>
-                    <input className="bg-neutral-800 py-1"/>
+                    <input className="bg-neutral-800 py-1 text-white" value={selectedItem.slckcdm}/>
                 </div>
                 <div className="mb-2 flex items-center">
                     <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
