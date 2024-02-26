@@ -2,11 +2,7 @@ import { useState } from "react";
 import { TableData } from "src/types/tabledata";
 import DialogForm from "../../RegisterDialogForm";
 
-interface RegisterTableDataProps {
-  tableData: TableData[];
-}
-
-const RegisterTableData: React.FC<RegisterTableDataProps> = ({ tableData }) => {
+const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
   const [selectedItem, setSelectedItem] = useState<TableData | null>(null);
   const [showDialog, setShowDialog] = useState(false);
 
@@ -25,7 +21,7 @@ const RegisterTableData: React.FC<RegisterTableDataProps> = ({ tableData }) => {
         <div className={"flex"}>
           <div
             className={`grid grid-cols-12 text-white text-center items-center w-full text-xs  ${
-              index % 2 === 0 ? `bg-neutral-800` : `bg-neutral-900`
+              index % 2 === 0 ? `bg-customDark3` : `bg-customDark2`
             }`}
           >
             <div className="grid col-span-4 grid-cols-8 py-2">

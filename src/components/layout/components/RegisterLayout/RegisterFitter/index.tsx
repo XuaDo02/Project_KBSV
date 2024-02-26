@@ -1,14 +1,11 @@
+/* eslint-disable prettier/prettier */
 import axios from "axios";
 import { useState } from "react";
 import { TableData } from "src/types/tabledata";
 
-const query = "symbol";
+// const query = "symbol";
 
-export default function RegisterFitter({
-  sendTableData
-}: {
-  sendTableData: (data: TableData[]) => void;
-}) {
+export default function RegisterFitter({sendTableData}:{sendTableData: (data: TableData[]) => void;}) {
   const [showForm, setShowForm] = useState(false);
   const [stockCodeInput, setStockCodeInput] = useState("");
   const [tableData, setTableData] = useState<TableData[]>([]);

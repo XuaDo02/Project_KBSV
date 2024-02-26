@@ -1,54 +1,34 @@
-import React from "react";
+// import { use } from "i18next";
+import { useState } from "react";
 import { TableData } from "src/types/tabledata";
 
-interface DialogFormProps {
-  sendStatusDialog: (val: boolean) => void;
-  selectedItem: TableData;
-}
-
-const DialogForm: React.FC<DialogFormProps> = ({
+export default function DialogForm({
   selectedItem,
   sendStatusDialog
-}) => {
-  const inputFields = [
-    { label: "Tiểu khoản", className: "bg-customDark3 py-1" },
-    { label: "Mã", className: "bg-customDark3 py-1", value: selectedItem.id },
-    {
-      label: "Giá",
-      className: "bg-customDark3 py-1",
-      value: selectedItem.price
-    },
-    {
-      label: "SL CK hưởng quyền",
-      className: "bg-customDark3 py-1",
-      value: selectedItem.slckhq
-    },
-    {
-      label: "SL quyền sở hữu",
-      className: "bg-customDark3 py-1",
-      value: selectedItem.slqsh
-    },
-    {
-      label: "SL CK đã mua",
-      className: "bg-customDark3 py-1",
-      value: selectedItem.slckdm
-    },
-    {
-      label: "SL CK còn được mua",
-      className: "bg-customDark3 py-1",
-      value: selectedItem.slckcdm
-    },
-    {
-      label: "SL CK đăng ký mua",
-      className:
-        "border border-customGray rounded text-right py-1 flex bg-customDark3 text-customDark3",
-      placeholder: "Nhập số lượng"
-    },
-    { label: "Tiền mua phải thanh toán", className: "bg-customDark3 py-1" }
-  ];
-
+}: {
+  selectedItem: TableData;
+  sendStatusDialog: (val: boolean) => void;
+}) {
   const handleCancelClick = () => {
     sendStatusDialog(false);
+  };
+
+  // trạng thái của input
+  const [slckdkm, setSLCKDKM] = useState("");
+  // hiển thị lỗi
+  const [isErrorSlckdkm, setIsErrorSlckdkm] = useState<boolean>(false);
+
+  const handleChangeSLCKDKM = (e: any) => {
+    const inputvalue = e.target.value;
+    if (inputvalue > 10) {
+      setIsErrorSlckdkm(true);
+      // dieu kien loi hien thi
+    } else {
+      setIsErrorSlckdkm(false);
+      // setSLCKDKM = inputvalue
+      // thay doi nut dang  ky
+      // obj = { slckdkm: } đưa tất cả các thuộc tính cộng thêm cả inputvalue vừa lấy để cho vào 1 obj. Khi bấm nút đăng ký thì sẽ hiển thị ra form
+    }
   };
 
   return (
@@ -59,18 +39,69 @@ const DialogForm: React.FC<DialogFormProps> = ({
             Đăng ký quyền mua
           </h2>
         </div>
-        {inputFields.map((inputField, index) => (
-          <div key={index} className="mb-2 flex items-center  ">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4  ">
-              {inputField.label}
-            </label>
+        <div className="mb-2 flex items-center">
+          <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+            Tiểu khoản
+          </label>
+          <span className="bg-customDark3 py-1">-</span>
+        </div>
+        <div className="mb-2 flex items-center">
+          <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+            Mã
+          </label>
+          <span className="bg-customDark3 py-1">{selectedItem.id}</span>
+        </div>
+        <div className="mb-2 flex items-center">
+          <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+            Giá
+          </label>
+          <span className="bg-customDark3 py-1">{selectedItem.price}</span>
+        </div>
+        <div className="mb-2 flex items-center">
+          <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+            SL CK hưởng quyền
+          </label>
+          <span className="bg-customDark3 py-1">{selectedItem.slckhq}</span>
+        </div>
+        <div className="mb-2 flex items-center">
+          <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+            SL quyền sở hữu
+          </label>
+          <span className="bg-customDark3 py-1">{selectedItem.slqsh}</span>
+        </div>
+        <div className="mb-2 flex items-center">
+          <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+            SL CK đã mua
+          </label>
+          <span className="bg-customDark3 py-1">{selectedItem.slckdm}</span>
+        </div>
+        <div className="mb-2 flex items-center">
+          <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+            SL CK còn được mua
+          </label>
+          <span className="bg-customDark3 py-1">{selectedItem.slckcdm}</span>
+        </div>
+        <div className="mb-2 flex items-center">
+          <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+            SL CK đăng ký mua
+          </label>
+          <div className="flex flex-col">
             <input
-              className={inputField.className}
-              placeholder={inputField.placeholder}
-              value={inputField.value}
+              type="text"
+              className="border border-customGray rounded text-right py-1 flex bg-customDark3 text-zinc-400"
+              placeholder="Nhập số lượng"
+              onChange={handleChangeSLCKDKM}
             />
+            {isErrorSlckdkm ? <div className="text-red">abc</div> : null}
           </div>
-        ))}
+        </div>
+
+        <div className="mb-2 flex items-center">
+          <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+            Tiền mua phải thanh toán
+          </label>
+          <span className="bg-customDark3 py-1">-</span>
+        </div>
         <div className="mt-5">
           <hr className="border-t border-neutral-600 w-full" />
         </div>
@@ -88,6 +119,4 @@ const DialogForm: React.FC<DialogFormProps> = ({
       </div>
     </div>
   );
-};
-
-export default DialogForm;
+}
