@@ -45,12 +45,12 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
                   Đăng ký
                 </button>
               </div>
-              {showDialog && selectedItem && (
+              {showDialog && selectedItem ? (
                 <DialogForm
                   selectedItem={selectedItem}
                   sendStatusDialog={getStatusDialogRegister}
                 />
-              )}
+              ) : null}
             </div>
           </div>
         </div>
