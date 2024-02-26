@@ -1,9 +1,8 @@
-
 import { useAppSelector } from "@hooks/useStore";
 import Aside from "./components/Aside";
 import Header from "./components/Header";
 
-function App({children}: {children:any}): JSX.Element {
+function App({ children }: { children: any }): JSX.Element {
   const { theme } = useAppSelector((state) => state);
 
   return (
@@ -15,12 +14,11 @@ function App({children}: {children:any}): JSX.Element {
         <Header />
         <div className="flex">
           <Aside />
-            <div className="bg-customDark2 m-2 h-screen rounded-md w-screen">
-              {children}
-            </div>
+          <div className="bg-customDark2 m-2 h-screen rounded-md w-screen">
+            {children}
+          </div>
         </div>
       </div>
-
     </div>
   );
 }

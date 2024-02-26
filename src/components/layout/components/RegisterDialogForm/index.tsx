@@ -23,21 +23,17 @@ export default function DialogForm({
     if (inputvalue > selectedItem.slckcdm) {
       setIsErrorSlckdkm(true);
       setSlckdm("");
-      // dieu kien loi hien thi
+      // điều kiện lỗi hiển thị
     } else {
       setIsErrorSlckdkm(false);
       setSlckdm(inputvalue);
-      // thay doi nut dang  ky
-      // obj = { slckdkm: } đưa tất cả các thuộc tính cộng thêm cả inputvalue vừa lấy để cho vào 1 obj. Khi bấm nút đăng ký thì sẽ hiển thị thêm slckdkdm (hợp lệ) ra form
     }
   };
 
-  const handleRegisterClick = () => {
-    //nếu inputvalue thỏa mãn điều kiện (tức là false) thì khi bấm nút đăng ký thì sẽ lưu được giá trị của inputvalue vừa nhập và hiển thị ra màn hình, đồng thời cũng hiển thị thêm các ô input otp
-  };
   return (
     <div className="fixed inset-0 flex items-center justify-center">
       <div className="bg-customDark3 p-6 rounded shadow-md w-1/2 h-auto">
+        {/* dang ky form start */}
         <div>
           <h2 className="text-lg font-semibold text-white mb-4 bg-customBlack text-left">
             Đăng ký quyền mua
@@ -47,52 +43,64 @@ export default function DialogForm({
           <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
             Tiểu khoản
           </label>
-          <span className="bg-customDark3 py-1">-</span>
+          <span className="bg-customDark3 py-1 flex justify-end w-full">-</span>
         </div>
         <div className="mb-2 flex items-center">
           <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
             Mã
           </label>
-          <span className="bg-customDark3 py-1">{selectedItem.id}</span>
+          <span className="bg-customDark3 py-1 flex justify-end w-full">
+            {selectedItem.id}
+          </span>
         </div>
         <div className="mb-2 flex items-center">
           <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
             Giá
           </label>
-          <span className="bg-customDark3 py-1">{selectedItem.price}</span>
+          <span className="bg-customDark3 py-1 flex justify-end w-full">
+            {selectedItem.price}
+          </span>
         </div>
         <div className="mb-2 flex items-center">
           <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
             SL CK hưởng quyền
           </label>
-          <span className="bg-customDark3 py-1">{selectedItem.slckhq}</span>
+          <span className="bg-customDark3 py-1 flex justify-end w-full">
+            {selectedItem.slckhq}
+          </span>
         </div>
         <div className="mb-2 flex items-center">
           <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
             SL quyền sở hữu
           </label>
-          <span className="bg-customDark3 py-1">{selectedItem.slqsh}</span>
+          <span className="bg-customDark3 py-1 flex justify-end w-full">
+            {selectedItem.slqsh}
+          </span>
         </div>
         <div className="mb-2 flex items-center">
           <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
             SL CK đã mua
           </label>
-          <span className="bg-customDark3 py-1">{selectedItem.slckdm}</span>
+          <span className="bg-customDark3 py-1 flex justify-end w-full">
+            {selectedItem.slckdm}
+          </span>
         </div>
         <div className="mb-2 flex items-center">
           <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
             SL CK còn được mua
           </label>
-          <span className="bg-customDark3 py-1">{selectedItem.slckcdm}</span>
+          <span className="bg-customDark3 py-1 flex justify-end w-full">
+            {selectedItem.slckcdm}
+          </span>
         </div>
-        <div className="mb-2 flex items-center">
+        <div className="mb-2 flex items-center justify-between">
           <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
             SL CK đăng ký mua
           </label>
-          <div className="flex flex-col">
+          <div className="flex flex-col items-end">
             <input
               type="text"
-              className="border border-customGray rounded text-right py-1 flex bg-customDark3 text-zinc-400 w-52"
+              className="border border-customGray rounded w-40 text-right py-1 bg-customDark3 text-zinc-400 mb-1"
               placeholder="Nhập số lượng"
               onChange={handleChangeSlckdkm}
             />
@@ -113,41 +121,11 @@ export default function DialogForm({
           <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
             Tiền mua phải thanh toán
           </label>
-          <span className="bg-customDark3 py-1">-</span>
+          <span className="bg-customDark3 py-1 flex justify-end w-full">-</span>
         </div>
         <div className="mt-5">
           <hr className="border-t border-neutral-600 w-full" />
         </div>
-
-        {/* input otp start */}
-        <div className="otp-field flex-center">
-          <input
-            type="text"
-            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
-          />
-          <input
-            type="text"
-            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
-          />
-          <input
-            type="text"
-            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
-          />
-          <input
-            type="text"
-            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
-          />
-          <input
-            type="text"
-            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
-          />
-          <input
-            type="text"
-            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
-          />
-        </div>
-
-        {/* input otp end */}
         <div className="flex justify-center mt-3">
           <button
             onClick={handleCancelClick}
@@ -155,13 +133,13 @@ export default function DialogForm({
           >
             Huỷ
           </button>
-          <button
-            onClick={handleRegisterClick}
-            className="px-4 py-2 text-sm font-normal text-customWhite bg-customGray rounded-md"
-          >
+          <button className="px-4 py-2 text-sm font-normal text-customWhite bg-customGray rounded-md">
             Đăng ký
           </button>
         </div>
+        {/* dang ky form end */}
+
+        {/* xac nhận form start */}
       </div>
     </div>
   );

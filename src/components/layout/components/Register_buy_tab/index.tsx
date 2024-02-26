@@ -5,14 +5,13 @@ export function RegisterBuyTab() {
   const tabsData = [
     {
       label: "Đăng ký quyền mua",
-      // content:<ResgisterLayout/> 
-      content:""
+      // content:<ResgisterLayout/>
+      content: ""
     },
     {
       label: "Lịch sử ",
-      content:
-        "Fugiat dolor et quis.",
-    },
+      content: "Fugiat dolor et quis."
+    }
   ];
   return (
     <div>
@@ -26,7 +25,8 @@ export function RegisterBuyTab() {
                   ? "border-yellow-200"
                   : "border-transparent hover:border-yellow-200"
               }`}
-              onClick={() => setActiveTabIndex(idx)}>
+              onClick={() => setActiveTabIndex(idx)}
+            >
               {tab.label}
             </button>
           );
