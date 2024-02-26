@@ -29,6 +29,8 @@ module.exports = {
         customBlack2: "#000000",
         // Màu #212121
         customDark3: "#212121",
+        //màu đỏ #FF453A
+        customRed: "#FF453A"
       },
     }
   },

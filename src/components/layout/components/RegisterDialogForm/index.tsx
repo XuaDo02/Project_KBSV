@@ -14,23 +14,27 @@ export default function DialogForm({
   };
 
   // trạng thái của input
-  const [slckdkm, setSLCKDKM] = useState("");
+  const [slckdkm, setSlckdm] = useState("");
   // hiển thị lỗi
   const [isErrorSlckdkm, setIsErrorSlckdkm] = useState<boolean>(false);
 
-  const handleChangeSLCKDKM = (e: any) => {
+  const handleChangeSlckdkm = (e: any) => {
     const inputvalue = e.target.value;
-    if (inputvalue > 10) {
+    if (inputvalue > selectedItem.slckcdm) {
       setIsErrorSlckdkm(true);
+      setSlckdm("");
       // dieu kien loi hien thi
     } else {
       setIsErrorSlckdkm(false);
-      // setSLCKDKM = inputvalue
+      setSlckdm(inputvalue);
       // thay doi nut dang  ky
-      // obj = { slckdkm: } đưa tất cả các thuộc tính cộng thêm cả inputvalue vừa lấy để cho vào 1 obj. Khi bấm nút đăng ký thì sẽ hiển thị ra form
+      // obj = { slckdkm: } đưa tất cả các thuộc tính cộng thêm cả inputvalue vừa lấy để cho vào 1 obj. Khi bấm nút đăng ký thì sẽ hiển thị thêm slckdkdm (hợp lệ) ra form
     }
   };
 
+  const handleRegisterClick = () => {
+    //nếu inputvalue thỏa mãn điều kiện (tức là false) thì khi bấm nút đăng ký thì sẽ lưu được giá trị của inputvalue vừa nhập và hiển thị ra màn hình, đồng thời cũng hiển thị thêm các ô input otp
+  };
   return (
     <div className="fixed inset-0 flex items-center justify-center">
       <div className="bg-customDark3 p-6 rounded shadow-md w-1/2 h-auto">
@@ -88,11 +92,20 @@ export default function DialogForm({
           <div className="flex flex-col">
             <input
               type="text"
-              className="border border-customGray rounded text-right py-1 flex bg-customDark3 text-zinc-400"
+              className="border border-customGray rounded text-right py-1 flex bg-customDark3 text-zinc-400 w-52"
               placeholder="Nhập số lượng"
-              onChange={handleChangeSLCKDKM}
+              onChange={handleChangeSlckdkm}
             />
-            {isErrorSlckdkm ? <div className="text-red">abc</div> : null}
+            {isErrorSlckdkm ? (
+              <div className="flex">
+                <div>
+                  <img src="/images/danger.png" />
+                </div>
+                <div className="text-customRed">
+                  *SL CK đăng ký mua không được vượt quá SL CK còn được mua
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
 
@@ -105,6 +118,36 @@ export default function DialogForm({
         <div className="mt-5">
           <hr className="border-t border-neutral-600 w-full" />
         </div>
+
+        {/* input otp start */}
+        <div className="otp-field flex-center">
+          <input
+            type="text"
+            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
+          />
+          <input
+            type="text"
+            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
+          />
+          <input
+            type="text"
+            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
+          />
+          <input
+            type="text"
+            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
+          />
+          <input
+            type="text"
+            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
+          />
+          <input
+            type="text"
+            className="w-14 h-14 px-1 text-center rounded-lg m-2 text-white"
+          />
+        </div>
+
+        {/* input otp end */}
         <div className="flex justify-center mt-3">
           <button
             onClick={handleCancelClick}
@@ -112,7 +155,10 @@ export default function DialogForm({
           >
             Huỷ
           </button>
-          <button className="px-4 py-2 text-sm font-normal text-customWhite bg-customGray rounded-md">
+          <button
+            onClick={handleRegisterClick}
+            className="px-4 py-2 text-sm font-normal text-customWhite bg-customGray rounded-md"
+          >
             Đăng ký
           </button>
         </div>
