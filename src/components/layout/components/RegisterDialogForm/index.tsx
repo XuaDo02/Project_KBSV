@@ -45,18 +45,27 @@ export default function RegisterDialogForm({
     } else if (specialCharactersRegex.test(inputvalue)) {
       setIsErrorSlckdkm(true);
       setInputCharacterError("*SL không hợp lệ");
-    } else if (!inputvalue) {
-      setIsDisableButton(true);
+      setIsDisableButton(false);
+    } else {
       setIsErrorSlckdkm(false);
       setSlckdm(inputvalue);
     }
   };
 
   useEffect(() => {
-    setIsDisableButton(isErrorSlckdkm);
-  }, [isErrorSlckdkm]);
-
-  // ...
+    const inputValueNumber = parseInt(slckdkm);
+    const specialCharactersRegex = /[`,.*&%$#@!\-+=]/;
+    if(inputValueNumber > selectedItem.slckcdm) {
+      setIsDisableButton(false);
+    }
+    else if (specialCharactersRegex.test(slckdkm)){
+      setIsDisableButton(false);
+    }
+    else if(inputValueNumber) {
+      setIsDisableButton(true);
+    }
+  }, [slckdkm, selectedItem.slckcdm]);
+  
   return (
     <div className="fixed inset-0 flex items-center justify-center">
       <div className="bg-customDark3 p-6 rounded shadow-md w-1/2 h-auto">
@@ -166,7 +175,7 @@ export default function RegisterDialogForm({
               </button>
               <button
                 onClick={handleRegisterClick}
-                className={`px-4 py-2 text-sm font-normal rounded-md  ${
+                className={`px-4 py-2 text-sm font-normal rounded-md ${
                   !isDisableButton
                     ? "bg-customGray text-customWhite"
                     : "bg-customYellow text-customDarkGray"
