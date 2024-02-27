@@ -20,7 +20,7 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
         // eslint-disable-next-line react/jsx-key
         <div className={"flex"}>
           <div
-            className={`grid grid-cols-12 text-white text-center items-center w-full text-xs  ${
+            className={`grid grid-cols-12 text-white text-center items-center w-full text-xs ${
               index % 2 === 0 ? `bg-customDark3` : `bg-customDark2`
             }`}
           >
