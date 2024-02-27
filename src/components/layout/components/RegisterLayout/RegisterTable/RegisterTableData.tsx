@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TableData } from "src/types/tabledata";
-import DialogForm from "../../RegisterDialogForm";
+import RegisterDialogForm from "../../RegisterDialogForm";
 
 const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
   const [selectedItem, setSelectedItem] = useState<TableData | null>(null);
@@ -46,7 +46,7 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
                 </button>
               </div>
               {showDialog && selectedItem ? (
-                <DialogForm
+                <RegisterDialogForm
                   selectedItem={selectedItem}
                   sendStatusDialog={getStatusDialogRegister}
                 />
