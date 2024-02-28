@@ -1,71 +1,67 @@
 // import { use } from "i18next";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TableData } from "src/types/tabledata";
 import RegisterConfirmForm from "../RegisterConfirmForm";
 
 export default function RegisterDialogForm({
   selectedItem,
-  sendStatusDialog
+  sendStatusRegisterDialog
 }: {
   selectedItem: TableData;
-  sendStatusDialog: (val: boolean) => void;
+  sendStatusRegisterDialog: (val: boolean) => void;
 }) {
+  const [inputValue, setInputValue] = useState("");
   // state của confirmform
   const [isConfirmForm, setIsConfirmForm] = useState(false);
   // trạng thái của input
   const [slckdkm, setSlckdm] = useState("");
-  // state hiển thị lỗi
+  // state lỗi
   const [isErrorSlckdkm, setIsErrorSlckdkm] = useState<boolean>(false);
 
   // state của nút đăng ký
   const [isDisableButton, setIsDisableButton] = useState(false);
 
+  // state loại lỗi của  ô input (1. SLCKDKM <= SKCKCDM) (2. lỗi nhập vào chứa các kí tự đặc biệt)
   const [inputCharacterError, setInputCharacterError] = useState<string>("");
 
-  // sự kiện nút đăng ký (chuyển sang form ConfirmForm)
+  // sự kiện nút đăng ký (nếu không có lỗi thì chuyển sang form ConfirmForm)
   const handleRegisterClick = () => {
     if (!isErrorSlckdkm) {
       setIsConfirmForm(true);
+      setInputValue("");
+      setIsDisableButton(false);
     }
   };
 
+  // tắt RegisterDialog
   const handleCancelClick = () => {
-    sendStatusDialog(false);
+    sendStatusRegisterDialog(false);
   };
 
   const handleChangeSlckdkm = (e: any) => {
-    const inputvalue = e.target.value;
-    const specialCharactersRegex = /[`,.*&%$#@!\-+=]/;
-    if (inputvalue > selectedItem.slckcdm) {
+    const inputValue = e.currentTarget.value;
+    const specialCharactersRegex = /[`,.*&%$#@!\-+=?]/;
+    if (inputValue > selectedItem.slckcdm) {
       setIsErrorSlckdkm(true);
       setSlckdm("");
       setInputCharacterError(
         "*SL CK đăng ký mua không được vượt quá SL CK còn được mua"
       );
-    } else if (specialCharactersRegex.test(inputvalue)) {
+      setIsDisableButton(false);
+    } else if (specialCharactersRegex.test(inputValue)) {
       setIsErrorSlckdkm(true);
       setInputCharacterError("*SL không hợp lệ");
       setIsDisableButton(false);
+    } else if (inputValue === "") {
+      setIsErrorSlckdkm(false); // mới thêm
+      setIsDisableButton(false);
     } else {
       setIsErrorSlckdkm(false);
-      setSlckdm(inputvalue);
+      setSlckdm(inputValue);
+      setIsDisableButton(true);
     }
   };
 
-  useEffect(() => {
-    const inputValueNumber = parseInt(slckdkm);
-    const specialCharactersRegex = /[`,.*&%$#@!\-+=]/;
-    if(inputValueNumber > selectedItem.slckcdm) {
-      setIsDisableButton(false);
-    }
-    else if (specialCharactersRegex.test(slckdkm)){
-      setIsDisableButton(false);
-    }
-    else if(inputValueNumber) {
-      setIsDisableButton(true);
-    }
-  }, [slckdkm, selectedItem.slckcdm]);
-  
   return (
     <div className="fixed inset-0 flex items-center justify-center">
       <div className="bg-customDark3 p-6 rounded shadow-md w-1/2 h-auto">
@@ -180,7 +176,6 @@ export default function RegisterDialogForm({
                     ? "bg-customGray text-customWhite"
                     : "bg-customYellow text-customDarkGray"
                 }`}
-                disabled={isDisableButton}
               >
                 Đăng ký
               </button>

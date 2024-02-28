@@ -10,7 +10,7 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
     setSelectedItem(item);
     setShowDialog(true);
   };
-  const getStatusDialogRegister = (val: boolean) => {
+  const getStatusRegisterDialog = (val: boolean) => {
     setShowDialog(val);
   };
 
@@ -48,7 +48,7 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
               {showDialog && selectedItem ? (
                 <RegisterDialogForm
                   selectedItem={selectedItem}
-                  sendStatusDialog={getStatusDialogRegister}
+                  sendStatusRegisterDialog={getStatusRegisterDialog}
                 />
               ) : null}
             </div>
