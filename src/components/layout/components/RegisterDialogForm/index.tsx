@@ -3,6 +3,7 @@ import { useState } from "react";
 import { TableData } from "src/types/tabledata";
 import RegisterConfirmForm from "../RegisterConfirmForm";
 
+let inputValue = "";
 export default function RegisterDialogForm({
   selectedItem,
   sendStatusRegisterDialog
@@ -10,7 +11,6 @@ export default function RegisterDialogForm({
   selectedItem: TableData;
   sendStatusRegisterDialog: (val: boolean) => void;
 }) {
-  const [inputValue, setInputValue] = useState("");
   // state của confirmform
   const [isConfirmForm, setIsConfirmForm] = useState(false);
   // trạng thái của input
@@ -28,8 +28,8 @@ export default function RegisterDialogForm({
   const handleRegisterClick = () => {
     if (!isErrorSlckdkm) {
       setIsConfirmForm(true);
-      setInputValue("");
       setIsDisableButton(false);
+      inputValue = ""; 
     }
   };
 
@@ -39,7 +39,7 @@ export default function RegisterDialogForm({
   };
 
   const handleChangeSlckdkm = (e: any) => {
-    const inputValue = e.currentTarget.value;
+    const inputValue = e.target.value;
     const specialCharactersRegex = /[`,.*&%$#@!\-+=?]/;
     if (inputValue > selectedItem.slckcdm) {
       setIsErrorSlckdkm(true);
