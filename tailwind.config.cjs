@@ -4,32 +4,47 @@ module.exports = {
   content: ["./src/**/*.tsx", "./src/**/*.ts"],
   theme: {
     extend: {
+      spacing: {
+        '775px': 'calc(100vh - 63px - 24px)', // Chiều cao phần tử là 100% chiều cao trình duyệt trừ đi khoảng cách từ top (63px) và padding bottom (24px)
+        '572px': '572px',
+        '164px': '164px',
+        '48px': '48px',
+        '12px': '12px',
+        '24px': '24px',
+      },
+      width: {
+        'fixed': '640px',
+        'fixed-569': '569px'
+      },
+      padding: {
+        '24px': '24px'
+      },
+      borderRadius: {
+        '8': '8px',
+        '0': '0', 
+      },
+      borderWidth: {
+        '1': '1px',
+      },
+      justifyContent: {
+        'space-between': 'space-between',
+      },
+      gap: {
+        '20': '20px'
+      },
       colors: {
-        // Màu xám nhạt
         customGrayLight: "#D8D8D8",
-        // Màu xám đậm
         customGrayDark: "#939090",
-        // Màu vàng
         customYellow: "#FBAF17",
-        // Màu đen
         customBlack: "#2E2E2E",
-        // Màu xám
         customGray: "#5F5F5F",
-        // Màu xám đậm
         customDarkGray: "#252525",
-        // Màu nâu
         customBrown: "#533700",
-        // Màu trắng
         customWhite: "#FFFFFF",
-        // Màu #080808
         customDark: "#080808",
-        // Màu #151515
         customDark2: "#151515",
-        // Màu #000000
         customBlack2: "#000000",
-        // Màu #212121
         customDark3: "#212121",
-        //màu đỏ #FF453A
         customRed: "#FF453A"
       },
     }

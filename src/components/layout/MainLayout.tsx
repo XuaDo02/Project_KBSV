@@ -1,15 +1,9 @@
-import { useAppSelector } from "@hooks/useStore";
 import Aside from "./components/Aside";
 import Header from "./components/Header";
 
 function App({ children }: { children: any }): JSX.Element {
-  const { theme } = useAppSelector((state) => state);
-
   return (
-    <div
-      className=" w-screen text-secondary bg-black overflow-y-auto h-screen"
-      data-theme={theme.id}
-    >
+    <div className=" w-screen text-secondary bg-black overflow-y-auto h-screen">
       <div>
         <Header />
         <div className="flex">

@@ -23,7 +23,7 @@ export default function ResgisterLayout() {
         <RegisterFitter sendTableData={handleTableChange} />
       </div>
       <hr className=" border-neutral-700 mt-4" />
-      <div className="mt-2">
+      <div className="mt-3">
         <RegisterTableLabel />
       </div>
       <hr className=" border-neutral-700 mt-4" />
@@ -32,7 +32,10 @@ export default function ResgisterLayout() {
           <RegisterTableData tableData={tableData} />
         </div>
       ) : (
-        <div className="flex justify-center">
+        <div
+          className="flex justify-center"
+          style={{ position: "absolute", top: "340px", left: "750px" }}
+        >
           <img src="/images/imgEmpty/cry.png" className="mr-2" />
         </div>
       )}
