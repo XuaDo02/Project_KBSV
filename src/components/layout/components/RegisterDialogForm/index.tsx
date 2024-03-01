@@ -29,7 +29,7 @@ export default function RegisterDialogForm({
     if (!isErrorSlckdkm) {
       setIsConfirmForm(true);
       setIsDisableButton(false);
-      inputValue = ""; 
+      inputValue = "";
     }
   };
 

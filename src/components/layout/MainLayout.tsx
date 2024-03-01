@@ -1,10 +1,13 @@
+import { ToastContainer } from "react-toastify";
 import Aside from "./components/Aside";
 import Header from "./components/Header";
+import "react-toastify/dist/ReactToastify.css";
 
 function App({ children }: { children: any }): JSX.Element {
   return (
+    <>
     <div className=" w-screen text-secondary bg-black overflow-y-auto h-screen">
-      <div>
+        <div>
         <Header />
         <div className="flex">
           <Aside />
@@ -14,6 +17,19 @@ function App({ children }: { children: any }): JSX.Element {
         </div>
       </div>
     </div>
+    <ToastContainer
+    position="top-right"
+    autoClose={5000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    theme="light"
+  />
+    </>
   );
 }
 

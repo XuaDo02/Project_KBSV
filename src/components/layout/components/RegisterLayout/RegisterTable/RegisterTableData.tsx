@@ -16,6 +16,9 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
 
   return (
     <>
+      {showDialog && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70"></div>
+      )}
       {tableData.map((item, index) => (
         // eslint-disable-next-line react/jsx-key
         <div className={"flex"}>

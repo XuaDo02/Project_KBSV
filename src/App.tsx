@@ -8,9 +8,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-          {routes.map((route) => (
-            <Route path={route.path} element={<MainLayout > {route.element}</MainLayout>} />
-          ))}
+        {routes.map((route) => (
+          <Route
+            path={route.path}
+            element={<MainLayout> {route.element}</MainLayout>}
+          />
+        ))}
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

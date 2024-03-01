@@ -16,6 +16,9 @@ module.exports = {
         'fixed': '640px',
         'fixed-569': '569px'
       },
+      height:{
+        'h-572' : '572px'
+      },
       padding: {
         '24px': '24px'
       },
