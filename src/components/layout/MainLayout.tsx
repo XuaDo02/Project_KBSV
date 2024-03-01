@@ -6,29 +6,29 @@ import "react-toastify/dist/ReactToastify.css";
 function App({ children }: { children: any }): JSX.Element {
   return (
     <>
-    <div className=" w-screen text-secondary bg-black overflow-y-auto h-screen">
+      <div className=" w-screen text-secondary bg-black overflow-y-auto h-screen">
         <div>
-        <Header />
-        <div className="flex">
-          <Aside />
-          <div className="bg-customDark2 m-2 h-screen rounded-md w-screen">
-            {children}
+          <Header />
+          <div className="flex">
+            <Aside />
+            <div className="bg-customDark2 m-2 h-screen rounded-md w-screen">
+              {children}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <ToastContainer
-    position="top-right"
-    autoClose={5000}
-    hideProgressBar={false}
-    newestOnTop={false}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-    theme="light"
-  />
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }

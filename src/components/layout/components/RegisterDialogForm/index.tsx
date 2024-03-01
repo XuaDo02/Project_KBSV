@@ -4,6 +4,7 @@ import { TableData } from "src/types/tabledata";
 import RegisterConfirmForm from "../RegisterConfirmForm";
 
 let inputValue = "";
+console.log(inputValue);
 export default function RegisterDialogForm({
   selectedItem,
   sendStatusRegisterDialog

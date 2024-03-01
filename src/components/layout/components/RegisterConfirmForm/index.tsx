@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { TableData } from "src/types/tabledata";
 
-const pin = "123456";
+const typePin = "123456";
 const typeOTP = "OTP";
 
 export default function RegisterConfirmForm({
@@ -33,6 +33,8 @@ export default function RegisterConfirmForm({
       // alert("Đăng ký thành công!");
       toast.success("Thành công!");
       onCancelRegisterConfirmForm();
+    } else {
+      toast.error("Mã OTP không chính xác. Vui lòng nhập lại.");
     }
   };
 
@@ -46,36 +48,52 @@ export default function RegisterConfirmForm({
     if (e.target.value.length >= 1 && otp3Ref.current) {
       otp3Ref.current.focus();
     }
+    handleBackspace(otp2Ref, otp1Ref);
     setOTP2(e.target.value);
   };
   const handleOtpInputThree = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length >= 1 && otp4Ref.current) {
       otp4Ref.current.focus();
     }
+    handleBackspace(otp3Ref, otp2Ref);
     setOTP3(e.target.value);
   };
   const handleOtpInputFour = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length >= 1 && otp5Ref.current) {
       otp5Ref.current.focus();
     }
+    handleBackspace(otp4Ref, otp3Ref);
     setOTP4(e.target.value);
   };
   const handleOtpInputFive = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length >= 1 && otp6Ref.current) {
       otp6Ref.current.focus();
     }
+    handleBackspace(otp5Ref, otp4Ref);
     setOTP5(e.target.value);
   };
   const handleOtpInputSix = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOTP6(e.target.value);
+    handleBackspace(otp6Ref, otp5Ref);
   };
 
   const [pinCode, setPinCode] = useState("");
   const handlePinCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPinCode(e.target.value);
   };
+
+  const handleBackspace = (
+    currentRef: React.RefObject<HTMLInputElement>,
+    previousRef: React.RefObject<HTMLInputElement>
+  ) => {
+    if (currentRef.current && currentRef.current.value === "") {
+      if (previousRef.current) {
+        previousRef.current.focus();
+      }
+    }
+  };
   const handleSubmitPin = () => {
-    if (pinCode === pin) {
+    if (pinCode === typePin) {
       toast.success("");
       onCancelRegisterConfirmForm();
     } else {
