@@ -5,7 +5,11 @@ import { TableData } from "src/types/tabledata";
 
 // const query = "symbol";
 
-export default function RegisterFitter({sendTableData}:{sendTableData: (data: TableData[]) => void;}) {
+export default function RegisterFitter({
+  sendTableData
+}: {
+  sendTableData: (data: TableData[]) => void;
+}) {
   const [showForm, setShowForm] = useState(false);
   const [stockCodeInput, setStockCodeInput] = useState("");
   const [tableData, setTableData] = useState<TableData[]>([]);
@@ -49,13 +53,13 @@ export default function RegisterFitter({sendTableData}:{sendTableData: (data: Ta
       {showForm && (
         <div className="flex flex-col absolute bg-customDark3 rounded-md mt-4 z-50 w-96 h-36">
           <div className="flex mt-3">
-            <label className="text-customGrayDark ml-3 text-sm">
+            <label className="text-customGrayDark ml-3 text-sm mt-1">
               Mã chứng khoán
             </label>
             <input
-              className=" bg-customBlack w-44 h-8 rounded-md ml-5 text-customGrayLight text-sm"
+              className=" bg-customBlack w-44 h-8 rounded-md ml-5 text-customGrayLight text-sm pl-4"
               type="text"
-              placeholder=" Nhập mã chứng khoán"
+              placeholder="Nhập mã chứng khoán"
               onChange={(e) => setStockCodeInput(e.target.value)}
             />
           </div>

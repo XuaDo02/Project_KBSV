@@ -1,4 +1,4 @@
-export default function RegisterFooter() {
+export default function Footer() {
   return (
     <>
       <div className="">

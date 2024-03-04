@@ -18,7 +18,7 @@ const RegisterTableLabel = () => {
           <div className="col-span-1">SL CK đã mua</div>
           <div className="col-span-1">Số tiền phải nộp</div>
           <div className="col-span-1">Số tiền đã nộp</div>
-          <div className="col-span-1">Hành động</div>
+          <div className="col-span-1"></div>
         </div>
       </div>
     </div>

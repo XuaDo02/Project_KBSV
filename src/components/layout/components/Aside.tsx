@@ -78,37 +78,35 @@ export default function Aside() {
 
   return (
     <>
-      <div>
-        <aside className="w-24 h-screen text-gray-300 bg-customDark2 text-sm">
-          <ul className="py-2">
-            {asideItems.map((item, index) => (
-              <li
-                key={index}
-                className="px-4 py-1 flex flex-col items-center"
-                onClick={item.isDropdown ? toggleDropdown : undefined}
-              >
-                <img src={item.imgSrc} className="mr-2" alt={item.text} />
-                <span className="text-center text-xs text-customGrayDark">
-                  {item.text}
-                </span>
-                {item.isDropdown && isDropdownOpen && (
-                  <ul className="absolute right-0 left-24 bg-customBlack rounded-md py-1 w-60 z-50">
-                    {item.dropDownLinks.map((link, index) => (
-                      <li
-                        key={index}
-                        className="px-2 py-2 text-sm text-customGrayLight flex ml-2 hover:bg-customYellow hover:text-black"
-                      >
-                        <img src={link.imgSrc} alt={link.text} />
-                        <Link to={link.to}>{link.text}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </aside>
-      </div>
+      <aside className="w-24 h-screen text-gray-300 bg-customDark2 text-sm ">
+        <ul className="py-2">
+          {asideItems.map((item, index) => (
+            <li
+              key={index}
+              className="px-4 py-1 flex flex-col items-center"
+              onClick={item.isDropdown ? toggleDropdown : undefined}
+            >
+              <img src={item.imgSrc} className="mb-2" alt={item.text} />
+              <span className="text-center text-xs text-customGrayDark">
+                {item.text}
+              </span>
+              {item.isDropdown && isDropdownOpen && (
+                <ul className="absolute right-0 left-24 bg-customBlack rounded-md py-1 w-60 z-50">
+                  {item.dropDownLinks.map((link, index) => (
+                    <li
+                      key={index}
+                      className="px-2 py-2 text-sm text-customGrayLight flex ml-2 hover:bg-customYellow hover:text-black"
+                    >
+                      <img src={link.imgSrc} alt={link.text} />
+                      <Link to={link.to}>{link.text}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </aside>
     </>
   );
 }

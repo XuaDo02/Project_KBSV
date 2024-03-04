@@ -9,9 +9,9 @@ function App({ children }: { children: any }): JSX.Element {
       <div className=" w-screen text-secondary bg-black overflow-y-auto h-screen">
         <div>
           <Header />
-          <div className="flex">
+          <div className="flex h-2/3">
             <Aside />
-            <div className="bg-customDark2 m-2 h-screen rounded-md w-screen">
+            <div className="bg-customDark2 m-2 h-full rounded-md w-full">
               {children}
             </div>
           </div>
@@ -20,13 +20,9 @@ function App({ children }: { children: any }): JSX.Element {
       <ToastContainer
         position="top-center"
         autoClose={1000}
-        hideProgressBar={false}
+        hideProgressBar={true}
         newestOnTop={false}
-        closeOnClick
         rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
         theme="light"
       />
     </>

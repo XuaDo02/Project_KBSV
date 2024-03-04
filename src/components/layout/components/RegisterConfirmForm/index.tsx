@@ -103,85 +103,89 @@ export default function RegisterConfirmForm({
 
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center flex-col">
-        <div className="bg-customDark3 p-4 rounded shadow-md w-1/2 relative">
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-4 bg-customBlack text-left">
+      <div className="fixed inset-0 flex items-center justify-center">
+        <div className="bg-customDark3 absolute top-164 left-435 rounded-8">
+          <div className="w-full md:w-[569px] h-[48px] md:px-5 py-5 rounded-tl-8 rounded-tr-8 flex items-center bg-customBlack">
+            <h2 className="text-lg font-sans font-semibold tracking-tight text-white text-left">
               Xác nhận đăng ký quyền mua
             </h2>
           </div>
-          <div className="mb-2 flex items-center py-1">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+          <div className="mb-2 flex items-center mt-3">
+            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">
               Tiểu khoản
             </label>
-            <span className="bg-customDark3 flex justify-end w-full">-</span>
+            <span className="bg-customDark3 py-1 flex justify-end w-full px-5">
+              -
+            </span>
           </div>
-          <div className="mb-2 flex items-center py-1">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+          <div className="mb-2 flex items-center">
+            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">
               Mã
             </label>
-            <span className="bg-customDark3 flex justify-end w-full">
+            <span className="bg-customDark3 py-1 flex justify-end w-full px-5">
               {selectedItem.id}
             </span>
           </div>
-          <div className="mb-2 flex items-center py-1">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+          <div className="mb-2 flex items-center">
+            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">
               Giá
             </label>
-            <span className="bg-customDark3 flex justify-end w-full">
+            <span className="bg-customDark3 py-1 flex justify-end w-full px-5">
               {selectedItem.price}
             </span>
           </div>
-          <div className="mb-2 flex items-center py-1">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+          <div className="mb-2 flex items-center">
+            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">
               SL CK hưởng quyền
             </label>
-            <span className="bg-customDark3 flex justify-end w-full">
+            <span className="bg-customDark3 py-1 flex justify-end w-full px-5">
               {selectedItem.slckhq}
             </span>
           </div>
-          <div className="mb-2 flex items-center py-1">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+          <div className="mb-2 flex items-center">
+            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">
               SL quyền sở hữu
             </label>
-            <span className="bg-customDark3 flex justify-end w-full">
+            <span className="bg-customDark3 py-1 flex justify-end w-full px-5">
               {selectedItem.slqsh}
             </span>
           </div>
-          <div className="mb-2 flex items-center py-1">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+          <div className="mb-2 flex items-center">
+            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">
               SL CK đã mua
             </label>
-            <span className="bg-customDark3 flex justify-end w-full">
+            <span className="bg-customDark3 py-1 flex justify-end w-full px-5">
               {selectedItem.slckdm}
             </span>
           </div>
-          <div className="mb-2 flex items-center py-1">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+          <div className="mb-2 flex items-center">
+            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">
               SL CK còn được mua
             </label>
-            <span className="bg-customDark3 flex justify-end w-full">
+            <span className="bg-customDark3 py-1 flex justify-end w-full px-5">
               {selectedItem.slckcdm}
             </span>
           </div>
-          <div className="mb-2 flex items-center py-1">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+          <div className="mb-2 flex items-center">
+            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">
               SL CK đăng ký mua
             </label>
-            <span className="bg-customDark3 flex justify-end w-full">
+            <span className="bg-customDark3 py-1 flex justify-end w-full px-5">
               {slckdkm}
             </span>
           </div>
-          <div className="mb-2 flex items-center py-1">
-            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left pr-4">
+          <div className="mb-2 flex items-center">
+            <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">
               Tiền mua phải thanh toán
             </label>
-            <span className="bg-customDark3 flex justify-end w-full">-</span>
+            <span className="bg-customDark3 py-1 flex justify-end w-full px-5">
+              -
+            </span>
           </div>
           <div className="mt-5">
             <hr className="border-t border-neutral-600 w-full" />
           </div>
-          <div className="flex justify-between mt-2">
+          <div className="flex justify-between mt-2 ml-5">
             <div className="flex">
               <span className="text-sm">Nhập mã</span>
               <img
@@ -189,7 +193,7 @@ export default function RegisterConfirmForm({
                 className="ml-2 w-4 h-4 mt-1"
               />
             </div>
-            <div className="flex">
+            <div className="flex mr-4">
               <span className="text-sm">Lưu mã</span>
               <img
                 src="/images/imgOTP/check box circle.png"
@@ -198,63 +202,67 @@ export default function RegisterConfirmForm({
             </div>
           </div>
           {typeOTP === "OTP" ? (
-            <div className="otp-field bg-customBlack rounded-lg h-20 mt-3">
-              <div className="py-1">
-                <input
-                  type="text"
-                  maxLength={1}
-                  ref={otp1Ref}
-                  onChange={handleOtpInputOne}
-                  className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                />
-                <input
-                  type="text"
-                  maxLength={1}
-                  ref={otp2Ref}
-                  onChange={handleOtpInputTwo}
-                  className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                />
-                <input
-                  type="text"
-                  maxLength={1}
-                  ref={otp3Ref}
-                  onChange={handleOtpInputThree}
-                  className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                />
-                <input
-                  type="text"
-                  maxLength={1}
-                  ref={otp4Ref}
-                  onChange={handleOtpInputFour}
-                  className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                />
-                <input
-                  type="text"
-                  maxLength={1}
-                  ref={otp5Ref}
-                  onChange={handleOtpInputFive}
-                  className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                />
-                <input
-                  type="text"
-                  maxLength={1}
-                  ref={otp6Ref}
-                  onChange={handleOtpInputSix}
-                  className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                />
-                <div className="flex justify-center mt-3">
-                  <button
-                    onClick={onCancelRegisterConfirmForm}
-                    className="mr-2 px-4 py-2 text-sm font-normal text-customYellow bg-neutral-800 border border-customYellow rounded-md"
-                  >
-                    Huỷ
-                  </button>
-                  <button
-                    onClick={handleSubmitOTP}
-                    className="px-4 py-2 text-sm font-semibold text-customBrown bg-customYellow rounded-md"
-                  >
-                    Xác nhận
-                  </button>
+            <div className=" w-auto h-36 mx-4">
+              <div className="otp-field bg-customBlack rounded-lg h-20 mt-3">
+                <div className="py-1">
+                  <input
+                    type="tel"
+                    maxLength={1}
+                    ref={otp1Ref}
+                    onChange={handleOtpInputOne}
+                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    maxLength={1}
+                    ref={otp2Ref}
+                    onChange={handleOtpInputTwo}
+                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    maxLength={1}
+                    ref={otp3Ref}
+                    onChange={handleOtpInputThree}
+                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    maxLength={1}
+                    ref={otp4Ref}
+                    onChange={handleOtpInputFour}
+                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    maxLength={1}
+                    ref={otp5Ref}
+                    onChange={handleOtpInputFive}
+                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    maxLength={1}
+                    ref={otp6Ref}
+                    onChange={handleOtpInputSix}
+                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <div className="flex justify-center mt-3">
+                    <button
+                      onClick={onCancelRegisterConfirmForm}
+                      className="w-60 h-10 mr-14 text-sm font-normal text-customYellow bg-neutral-800 border border-customYellow rounded-md"
+                    >
+                      Huỷ
+                    </button>
+                    <button
+                      onClick={handleSubmitOTP}
+                      className="w-60 h-10 rounded-md text-sm font-semibold text-customBrown bg-customYellow"
+                    >
+                      Xác nhận
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -274,16 +282,16 @@ export default function RegisterConfirmForm({
                   thực
                 </span>
               </div>
-              <div className="flex justify-center mt-3">
+              <div className="items-center mt-3">
                 <button
                   onClick={onCancelRegisterConfirmForm}
-                  className="mr-2 px-4 py-2 text-sm font-normal text-customYellow bg-neutral-800 border border-customYellow rounded-md"
+                  className="w-44 h-10 mr-2 text-sm font-normal text-customYellow bg-neutral-800 border border-customYellow rounded-md"
                 >
                   Huỷ
                 </button>
                 <button
                   onClick={handleSubmitPin}
-                  className="px-4 py-2 text-sm font-semibold text-customBrown bg-customYellow rounded-md"
+                  className="w-44 h-10 mr-2 text-sm font-normal border border-customYellow rounded-md text-customBrown bg-customYellow"
                 >
                   Xác nhận
                 </button>

@@ -27,7 +27,7 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
               index % 2 === 0 ? `bg-customDark3` : `bg-customDark2`
             }`}
           >
-            <div className="grid col-span-4 grid-cols-8 py-2">
+            <div className="grid col-span-4 grid-cols-8 py-2 ">
               <div className="col-span-1">{item.id}</div>
               <div className="col-span-1">{item.symbol}</div>
               <div className="col-span-3">{item.slckhq}</div>
@@ -39,10 +39,10 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
               <div className="col-span-2">{item.termdk}</div>
               <div className="col-span-2">{item.slckcdm}</div>
             </div>
-            <div className="grid col-span-4 grid-cols-5">
+            <div className="grid col-span-4 grid-cols-4">
               <div className="col-span-1">{item.slckdm}</div>
               <div className="col-span-1">{item.paid}</div>
-              <div className="col-span-2">{item.payable}</div>
+              <div className="col-span-1">{item.payable}</div>
               <div className="col-span-1 h-full flex justify-center items-center text-xs text-yellow-400 underline">
                 <button onClick={() => handleRegisterClick(item)}>
                   Đăng ký
