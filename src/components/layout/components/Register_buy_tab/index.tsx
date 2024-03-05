@@ -15,18 +15,17 @@ export function RegisterBuyTab() {
   ];
   return (
     <div>
-      <div className="flex space-x-3 border-b text-customWhite text-sm ">
+      <div className="flex border-b text-customWhite text-sm ">
         {tabsData.map((tab, idx) => {
           return (
             <button
               key={idx}
-              className={`py-2 border-b-2 transition-colors duration-300 ${
+              className={`py-2 border-b-2 w-36 text-sm ${
                 idx === activeTabIndex
-                  ? "border-customYellow"
+                  ? "border-customYellow bg-gradient-to-t from-customDarkGray to-transparent"
                   : "border-transparent hover:border-yellow-200"
               }`}
               onClick={() => setActiveTabIndex(idx)}
-              style={{ fontSize: "15px" }}
             >
               {tab.label}
             </button>

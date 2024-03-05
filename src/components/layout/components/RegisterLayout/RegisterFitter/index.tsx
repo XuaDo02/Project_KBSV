@@ -43,7 +43,7 @@ export default function RegisterFitter({
             className="w-5 h-5 ml-3"
             src="/images/imageMenu/search-normal-new.png"
           />
-          <span className="ml-2">Bộ lọc</span>
+          <span className="ml-2 text-base">Bộ lọc</span>
           <img
             className="ml-2 w-5 h-5"
             src="/images/imageMenu/arrow-down.png"

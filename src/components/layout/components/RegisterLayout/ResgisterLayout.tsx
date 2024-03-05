@@ -14,22 +14,16 @@ export default function ResgisterLayout() {
 
   return (
     <div className="">
-      <div className="ml-2 mt-5">
-        <RegisterBuyTab />
-      </div>
+      <RegisterBuyTab />
 
-      <div className="ml-2">
-        <RegisterFitter sendTableData={handleTableChange} />
-      </div>
-      <hr className=" border-neutral-700 mt-4" />
-      <div className="mt-3">
+      <RegisterFitter sendTableData={handleTableChange} />
+      <hr className=" border-neutral-700 mt-4 " />
+      <div className="mt-3 ">
         <RegisterTableLabel />
       </div>
       <hr className=" border-neutral-700 mt-4" />
       {tableData.length > 0 ? (
-        <div className="">
-          <RegisterTableData tableData={tableData} />
-        </div>
+        <RegisterTableData tableData={tableData} />
       ) : (
         <div className="flex justify-center mt-32">
           <div className="text-center">

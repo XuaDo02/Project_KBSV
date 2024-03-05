@@ -1,11 +1,11 @@
 export default function Header() {
   return (
     <>
-      <div className="text-white p-3 flex justify-between items-center bg-customDark2 h-14">
+      <div className="text-white flex justify-between items-center bg-customDark2 h-14 ">
         <div className="flex items-center ml-5">
           <img src="/images/imgHeader/path20.png" className="mr-2" />
-          <h1 className="text-2xl font-mono">KB Securities</h1>
-          <button className="ml-10 mt-1 text-sm text-customYellow">
+          <h1 className="text-2xl">KB Securities</h1>
+          <button className=" w-16 h-5 mt-1 ml-10 text-sm text-customYellow bg-gradient-to-r from-customGrayDark to-customDark2 rounded-lg hover:from-transparent hover:to-gray-400">
             Tin mới
           </button>
 

@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 function App({ children }: { children: any }): JSX.Element {
   return (
     <>
-      <div className=" w-screen text-secondary bg-black overflow-y-auto h-screen">
+      <div className=" w-screen text-secondary bg-black h-screen">
         <Header />
         <div className="flex h-[calc(100vh_-_56px)]">
           <Aside />
