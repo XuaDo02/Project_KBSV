@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <>
-      <div className="">
+      <div>
         <div className="flex justify-between">
           <div className="flex flex-item">
             <div>

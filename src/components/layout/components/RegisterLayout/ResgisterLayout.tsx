@@ -5,8 +5,6 @@ import RegisterFitter from "./RegisterFitter";
 import RegisterTableData from "./RegisterTable/RegisterTableData";
 import RegisterTableLabel from "./RegisterTable/RegisterTableLabel";
 import { TableData } from "src/types/tabledata";
-import Footer from "../Footer";
-
 export default function ResgisterLayout() {
   const [tableData, setTableData] = useState<TableData[]>([]);
 
@@ -15,25 +13,25 @@ export default function ResgisterLayout() {
   };
 
   return (
-    <div>
-      <div className="ml-2 mt-5 h-1/6">
+    <div className="">
+      <div className="ml-2 mt-5">
         <RegisterBuyTab />
       </div>
 
-      <div className="ml-2 h-1/6">
+      <div className="ml-2">
         <RegisterFitter sendTableData={handleTableChange} />
       </div>
       <hr className=" border-neutral-700 mt-4" />
-      <div className="mt-3 h-1/6">
+      <div className="mt-3">
         <RegisterTableLabel />
       </div>
       <hr className=" border-neutral-700 mt-4" />
       {tableData.length > 0 ? (
-        <div className="h-2/6">
+        <div className="">
           <RegisterTableData tableData={tableData} />
         </div>
       ) : (
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-32">
           <div className="text-center">
             <img src="/images/imgEmpty/cry.png" />
             <p className="text-sm font-medium text-customGrayDark ">
@@ -42,9 +40,6 @@ export default function ResgisterLayout() {
           </div>
         </div>
       )}
-      <div className="ml-2 mt-5 mb-5 h-1/6">
-        <Footer />
-      </div>
     </div>
   );
 }

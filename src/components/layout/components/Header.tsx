@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <>
-      <div className="text-white p-3 h-1/3 flex justify-between items-center bg-customDark2">
+      <div className="text-white p-3 flex justify-between items-center bg-customDark2 h-14">
         <div className="flex items-center ml-5">
           <img src="/images/imgHeader/path20.png" className="mr-2" />
           <h1 className="text-2xl font-mono">KB Securities</h1>

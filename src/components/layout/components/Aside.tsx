@@ -78,7 +78,7 @@ export default function Aside() {
 
   return (
     <>
-      <aside className="w-24 h-screen text-gray-300 bg-customDark2 text-sm ">
+      <aside className="w-24 h-full text-gray-300 bg-customDark2 text-sm ">
         <ul className="py-2">
           {asideItems.map((item, index) => (
             <li
