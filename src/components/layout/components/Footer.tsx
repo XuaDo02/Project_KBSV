@@ -5,12 +5,19 @@ export default function Footer() {
         <div className="flex justify-between">
           <div className="flex flex-item">
             <div>
-              <button className="w-24 h-8 text-sm bg-customYellow rounded-md text-customBrown">
+              <button className="w-24 h-8 text-sm bg-customYellow rounded-md text-customBrown font-semibold">
                 Đặt lệnh
               </button>
             </div>
-            <div className="ml-2 ">
-              <input className="bg-customDarkGray w-60 h-8 rounded-md" />
+            <div className="ml-2 flex items-center">
+              <button className="bg-customDarkGray w-60 h-8 rounded-md text-left pl-3 text-customGrayDark text-sm flex items-center">
+                <p className="flex-grow">Tất cả</p>
+                <img
+                  src="/images/imageMenu/arrow-down.png"
+                  alt=""
+                  className="pr-3"
+                />
+              </button>
             </div>
           </div>
           <div className="flex items-center text-zinc-400">

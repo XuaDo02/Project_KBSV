@@ -20,7 +20,7 @@ export function RegisterBuyTab() {
           return (
             <button
               key={idx}
-              className={`py-2 border-b-2 w-36 text-sm ${
+              className={`py-2 border-b-2 w-40 h-16 text-base ${
                 idx === activeTabIndex
                   ? "border-customYellow bg-gradient-to-t from-customDarkGray to-transparent"
                   : "border-transparent hover:border-yellow-200"

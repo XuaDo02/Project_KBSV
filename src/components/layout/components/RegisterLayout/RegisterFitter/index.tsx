@@ -32,15 +32,15 @@ export default function RegisterFitter({
   };
   return (
     <div>
-      <div className=" bg-customDark3 h-9 w-32 rounded-md flex flex-item-center">
+      <div className="bg-customDark3 h-9 w-40 rounded-md flex item-center">
         <button
-          className="text-customGrayLight flex items-center"
+          className="text-customGrayLight flex items-center px-7"
           onClick={() => {
             setShowForm(!showForm);
           }}
         >
           <img
-            className="w-5 h-5 ml-3"
+            className="w-5 h-5"
             src="/images/imageMenu/search-normal-new.png"
           />
           <span className="ml-2 text-base">Bộ lọc</span>

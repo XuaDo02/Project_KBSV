@@ -53,10 +53,6 @@ module.exports = {
       justifyContent: {
         'space-between': 'space-between',
       },
-      gap: {
-        '20': '20px',
-        '10': '10px',
-      },
       colors: {
         customGrayLight: "#D8D8D8",
         customGrayDark: "#939090",

@@ -66,8 +66,8 @@ export default function RegisterDialogForm({
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center ">
-      <div className="bg-customDark3 absolute top-164 left-435 w-[569px] h-auto rounded-8 ">
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className="bg-customDark3 absolute top-164 left-435 w-[569px] h-auto rounded-8">
         {!isConfirmForm ? (
           <>
             <div className="w-full md:w-[569px] h-[48px] md:px-5 py-5 rounded-tl-8 rounded-tr-8 flex items-center bg-customBlack">

@@ -10,19 +10,22 @@ export default function Header() {
           </button>
 
           <div className="ml-80 flex">
-            <div className=" ml-96 text-sm mt-3">
-              <p>09:53:26 26/12/2023</p>
+            <div className="flex ml-96 text-sm mt-3">
+              <p>09:59:59 </p>
+              <p className="pr-5 pl-3 text-customGray ">26/12/2023</p>
             </div>
             <div>
-              <div className="grid grid-cols-7 text-white text-center items-center w-full text-xs">
+              <div className="grid grid-cols-7 items-center w-full text-xs">
                 <div className="grid col-span-4 grid-cols-5">
-                  <div className="col-span-1 ml-2">
-                    <img
-                      src="/images/imgHeader/search-normal.png"
-                      className="mr-2"
-                    />
+                  <div className="col-span-1 ml-1 border-r border-l border-customBlack">
+                    <button>
+                      <img
+                        src="/images/imgHeader/search-normal.png"
+                        className="mx-2"
+                      />
+                    </button>
                   </div>
-                  <div className="col-span-1 ml-2">
+                  <div className="col-span-1 ml-2 ">
                     <img src="/images/imgHeader/lock.png" className="mr-2" />
                   </div>
                   <div className="col-span-1 ml-2">
@@ -37,22 +40,22 @@ export default function Header() {
                       className="mr-2"
                     />
                   </div>
-                  <div className="col-span-1 ml-2">
+                  <div className="col-span-1 ml-1">
                     <img
                       src="/images/imgHeader/message-question.png"
-                      className="mr-2"
+                      className=" "
                     />
                   </div>
                 </div>
                 <div className="grid col-span-3 grid-cols-1">
-                  <div className="col-span-1 ml-2 flex">
+                  <div className="col-span-1 ml-2 flex ">
                     <img
                       src="/images/imgHeader/user.png"
-                      className="mr-2 w-10 h-10"
+                      className="mr-2 w-10 h-10 "
                     />
-                    <div className="flex flex-col mt-1 text-sm font-semibold text-customGray">
-                      <span>Nguyen Van A</span>
-                      <span>09O123HFHF22</span>
+                    <div className="flex flex-col mt-1 text-sm font-sans ">
+                      <span className="text-customGrayLight">Nguyen Van A</span>
+                      <span className="text-customGray">09O123HFHF22</span>
                     </div>
                   </div>
                 </div>

@@ -17,7 +17,7 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
   return (
     <>
       {showData && (
-        <div className="top-0 left-0 w-full h-full bg-black bg-opacity-70"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10" />
       )}
       <div className="overflow-y-auto max-h-351">
         {tableData.map((item, index) => (

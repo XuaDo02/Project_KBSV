@@ -25,7 +25,7 @@ export default function ResgisterLayout() {
       {tableData.length > 0 ? (
         <RegisterTableData tableData={tableData} />
       ) : (
-        <div className="flex justify-center mt-32">
+        <div className="flex justify-center pt-32">
           <div className="text-center">
             <img src="/images/imgEmpty/cry.png" />
             <p className="text-sm font-medium text-customGrayDark ">
