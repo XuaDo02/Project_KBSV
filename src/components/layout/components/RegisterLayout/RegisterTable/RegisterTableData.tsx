@@ -36,8 +36,12 @@ const RegisterTableData = ({ tableData }: { tableData: TableData[] }) => {
               </div>
               <div className="grid col-span-4 grid-cols-6">
                 <div className="col-span-1">{item.price}</div>
-                <div className="col-span-1">{item.term}</div>
-                <div className="col-span-2">{item.termdk}</div>
+                <div className="col-span-1">
+                  {new Date(item.term).toLocaleDateString()}
+                </div>
+                <div className="col-span-2">
+                  {new Date(item.termdk).toLocaleDateString()}
+                </div>
                 <div className="col-span-2">{item.slckcdm}</div>
               </div>
               <div className="grid col-span-4 grid-cols-4">

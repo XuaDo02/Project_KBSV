@@ -147,7 +147,7 @@ export default function RegisterDialogForm({
                       <div>
                         <img src="/images/danger.png" />
                       </div>
-                      <div className="text-customRed">
+                      <div className="text-customRed whitespace-nowrap">
                         {inputCharacterError}
                       </div>
                     </div>

@@ -22,7 +22,7 @@ export function RegisterBuyTab() {
               key={idx}
               className={`py-2 border-b-2 w-40 h-16 text-base ${
                 idx === activeTabIndex
-                  ? "border-customYellow bg-gradient-to-t from-customDarkGray to-transparent"
+                  ? "border-customYellow bg-gradient-to-t from-customGrayDark to-customDark2"
                   : "border-transparent hover:border-yellow-200"
               }`}
               onClick={() => setActiveTabIndex(idx)}
