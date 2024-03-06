@@ -105,10 +105,16 @@ export default function RegisterConfirmForm({
     <>
       <div className="fixed inset-0 flex items-center justify-center">
         <div className="bg-customDark3 absolute top-164 left-435 rounded-8">
-          <div className="w-full md:w-[569px] h-[48px] md:px-5 py-5 rounded-tl-8 rounded-tr-8 flex items-center bg-customBlack">
-            <h2 className="text-lg font-sans font-semibold tracking-tight text-white text-left">
+          <div className="w-full h-[48px] md:px-5 py-5 rounded-tl-8 rounded-tr-8 flex items-center bg-customBlack">
+            <span className="text-lg font-sans font-semibold tracking-tight text-white text-left">
               Xác nhận đăng ký quyền mua
-            </h2>
+            </span>
+            <button
+              className="flex ml-auto"
+              onClick={onCancelRegisterConfirmForm}
+            >
+              <img src="/images/close.png" className="w-6 h-6" />
+            </button>
           </div>
           <div className="mb-2 flex items-center mt-3">
             <label className="block text-sm font-medium text-zinc-400 w-1/2 text-left px-5">

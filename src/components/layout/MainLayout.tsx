@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
 
-function App({ children }: { children: any }): JSX.Element {
+function MainLayout({ children }: { children: any }): JSX.Element {
   return (
     <>
       <div className=" w-screen text-secondary bg-black h-screen">
@@ -12,7 +12,7 @@ function App({ children }: { children: any }): JSX.Element {
         <div className="flex h-[calc(100vh_-_56px)]">
           <Aside />
           <div className="bg-customDark2 m-1 rounded-md w-screen max-h-full">
-            <div className=" h-[calc(100%_-_44px)]">{children}</div>
+            <div className="h-[calc(100%_-_44px)]">{children}</div>
             <div className="h-11 mx-3">
               <Footer />
             </div>
@@ -31,4 +31,4 @@ function App({ children }: { children: any }): JSX.Element {
   );
 }
 
-export default App;
+export default MainLayout;

@@ -70,10 +70,13 @@ export default function RegisterDialogForm({
       <div className="bg-customDark3 absolute top-164 left-435 w-[569px] h-auto rounded-8">
         {!isConfirmForm ? (
           <>
-            <div className="w-full md:w-[569px] h-[48px] md:px-5 py-5 rounded-tl-8 rounded-tr-8 flex items-center bg-customBlack">
-              <h2 className="text-lg font-sans font-semibold tracking-tight text-white">
+            <div className="h-[48px] md:px-5 py-5 rounded-tl-8 rounded-tr-8 flex items-center bg-customBlack">
+              <span className="text-lg font-sans font-semibold tracking-tight text-white ">
                 Đăng ký quyền mua
-              </h2>
+              </span>
+              <button className="flex ml-auto" onClick={handleCancelClick}>
+                <img src="/images/close.png" className="w-6 h-6" />
+              </button>
             </div>
 
             <div className="mt-5">
@@ -172,7 +175,7 @@ export default function RegisterDialogForm({
             <div className="flex justify-center my-5 h-18">
               <button
                 onClick={handleCancelClick}
-                className="w-60 h-10 mr-10 text-sm font-normal text-customYellow bg-neutral-800 border border-customYellow rounded-md"
+                className="w-60 h-10 mr-14 text-sm font-normal text-customYellow bg-neutral-800 border border-customYellow rounded-md"
               >
                 Huỷ
               </button>

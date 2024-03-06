@@ -12,10 +12,9 @@ function App() {
           // eslint-disable-next-line react/jsx-key
           <Route
             path={route.path}
-            element={<MainLayout> {route.element}</MainLayout>}
+            element={<MainLayout>{route.element}</MainLayout>}
           />
         ))}
-
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
