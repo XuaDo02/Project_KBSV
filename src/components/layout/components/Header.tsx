@@ -12,7 +12,7 @@ export default function Header() {
           <div className="ml-80 flex">
             <div className="flex ml-96 text-sm mt-3">
               <p>09:59:59 </p>
-              <p className="pr-5 pl-3 text-customGray ">26/12/2023</p>
+              <p className="pr-5 pl-3 text-customGray ">16/01/2023</p>
             </div>
             <div>
               <div className="grid grid-cols-7 items-center w-full text-xs">

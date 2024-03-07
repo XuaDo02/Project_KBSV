@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { TableData } from "src/types/tabledata";
+import { Eye, EyeSlash } from "iconsax-react";
 
 const typePin = "123456";
 const typeOTP = "OTP";
@@ -14,6 +15,10 @@ export default function RegisterConfirmForm({
   slckdkm: string;
   onCancelRegisterConfirmForm: () => void;
 }) {
+  const [showOTP, setShowOTP] = useState(false);
+  const handleShowHideOTP = () => {
+    setShowOTP((prevState) => !prevState);
+  };
   // Khai báo state để lưu trữ giá trị của các ô input OTP
   const [otp, setOTP] = useState<string[]>(Array(6).fill(""));
   // Khai báo một mảng refs để lưu trữ tham chiếu đến các ô input OTP
@@ -176,11 +181,20 @@ export default function RegisterConfirmForm({
           </div>
           <div className="flex justify-between mt-2 ml-5">
             <div className="flex">
-              <span className="text-sm">Nhập mã</span>
-              <img
-                src="/images/imgOTP/eye-slash.png"
-                className="ml-2 w-4 h-4 mt-1"
-              />
+              <div>
+                <span className="text-sm">Nhập mã</span>
+              </div>
+              <div className="pl-2 pt-1">
+                {showOTP ? (
+                  <EyeSlash
+                    size="15"
+                    color="#D8D8D8"
+                    onClick={handleShowHideOTP}
+                  />
+                ) : (
+                  <Eye size="15" color="#D8D8D8" onClick={handleShowHideOTP} />
+                )}
+              </div>
             </div>
             <div className="flex mr-4">
               <span className="text-sm">Lưu mã</span>
@@ -197,12 +211,12 @@ export default function RegisterConfirmForm({
                   {otp.map((value, index) => (
                     <input
                       key={index}
-                      type="tel"
+                      type={showOTP ? "password" : "tel"}
                       maxLength={1}
-                      // kiểm tra xem el giá trị nhập vào có phải null không? nếu ko null thì gán
-                      ref={(el) => {
-                        if (el !== null) {
-                          otpRefs.current[index] = el;
+                      // kiểm tra xem tel giá trị nhập vào có phải null không? nếu ko null thì gán
+                      ref={(tel) => {
+                        if (tel !== null) {
+                          otpRefs.current[index] = tel;
                         }
                       }}
                       value={value}
