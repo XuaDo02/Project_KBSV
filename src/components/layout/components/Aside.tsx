@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ArrowLeft2 } from "iconsax-react";
 
 export default function Aside() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -40,7 +41,7 @@ export default function Aside() {
         {
           imgSrc: "/images/imageMenu/message-edit.png",
           text: "Đăng ký quyền mua",
-          to: "/registerLayout"
+          to: "/registerBuyTab"
         },
         {
           imgSrc: "/images/imageMenu/forward-item.png",
@@ -105,6 +106,9 @@ export default function Aside() {
               )}
             </li>
           ))}
+          <button className="bg-customBlack w-4 h-8 mt-4 rounded-r-md">
+            <ArrowLeft2 size="14" color="#d8d8d8" variant="Bold" />
+          </button>
         </ul>
       </aside>
     </>

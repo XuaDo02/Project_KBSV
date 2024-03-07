@@ -1,20 +1,23 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import ResgisterLayout from "../RegisterLayout/ResgisterLayout";
+import RegisterBuyHistory from "../RegisterBuyHistory";
 
 export function RegisterBuyTab() {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
+
   const tabsData = [
     {
       label: "Đăng ký quyền mua",
-      // content:<ResgisterLayout/>
-      content: ""
+      content: <ResgisterLayout />
     },
     {
-      label: "Lịch sử ",
-      content: "Fugiat dolor et quis."
+      label: "Lịch sử",
+      content: <RegisterBuyHistory />
     }
   ];
+
   return (
-    <div>
+    <div className="">
       <div className="flex border-b text-customWhite text-sm ">
         {tabsData.map((tab, idx) => {
           return (
@@ -38,3 +41,5 @@ export function RegisterBuyTab() {
     </div>
   );
 }
+
+export default RegisterBuyTab;

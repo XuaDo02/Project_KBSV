@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { RegisterBuyTab } from "../Register_buy_tab";
 import RegisterFitter from "./RegisterFitter";
-// import RegisterFooter from "./RegisterFooter";
 import RegisterTableData from "./RegisterTable/RegisterTableData";
 import RegisterTableLabel from "./RegisterTable/RegisterTableLabel";
 import { TableData } from "src/types/tabledata";
+
 export default function ResgisterLayout() {
   const [tableData, setTableData] = useState<TableData[]>([]);
 
@@ -14,8 +13,6 @@ export default function ResgisterLayout() {
 
   return (
     <div className="">
-      <RegisterBuyTab />
-
       <RegisterFitter sendTableData={handleTableChange} />
       <hr className=" border-neutral-700 mt-4 " />
       <div className="mt-3 ">
