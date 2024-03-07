@@ -14,95 +14,78 @@ export default function RegisterConfirmForm({
   slckdkm: string;
   onCancelRegisterConfirmForm: () => void;
 }) {
-  const [otp1, setOTP1] = useState("");
-  const [otp2, setOTP2] = useState("");
-  const [otp3, setOTP3] = useState("");
-  const [otp4, setOTP4] = useState("");
-  const [otp5, setOTP5] = useState("");
-  const [otp6, setOTP6] = useState("");
-  const otp1Ref = useRef<HTMLInputElement>(null);
-  const otp2Ref = useRef<HTMLInputElement>(null);
-  const otp3Ref = useRef<HTMLInputElement>(null);
-  const otp4Ref = useRef<HTMLInputElement>(null);
-  const otp5Ref = useRef<HTMLInputElement>(null);
-  const otp6Ref = useRef<HTMLInputElement>(null);
+  // Khai báo state để lưu trữ giá trị của các ô input OTP
+  const [otp, setOTP] = useState<string[]>(Array(6).fill(""));
+  // Khai báo một mảng refs để lưu trữ tham chiếu đến các ô input OTP
+  const otpRefs = useRef<HTMLInputElement[]>(Array(6).fill(null));
 
-  const combineOTP = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
+  // Hàm xử lý sự kiện thay đổi giá trị của ô input OTP
+  const handleOtpInputChange = (index: number, value: string) => {
+    const newOTP = [...otp];
+    // Kiểm tra nếu giá trị nhập vào là số thì mới cập nhật vào state
+    if (!isNaN(Number(value))) {
+      newOTP[index] = value;
+      setOTP(newOTP);
+      // Di chuyển tới ô input tiếp theo nếu đã nhập đủ một ký tự
+      if (value !== "" && index < 5) {
+        otpRefs.current[index + 1]?.focus();
+      }
+    }
+  };
+
+  // Hàm xử lý sự kiện nhấn phím Backspace
+  const handleOtpInputBackspace = (
+    index: number,
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    // Nếu nhấn phím Backspace và ô input không phải là ô input đầu tiên
+    if (e.key === "Backspace" && index > 0) {
+      const newOTP = [...otp];
+      // Xoá giá trị của ô input và chuyển focus tới ô input trước đó
+      newOTP[index] = "";
+      setOTP(newOTP);
+      otpRefs.current[index - 1]?.focus();
+    }
+  };
+
+  // Hàm xử lý khi submit OTP
   const handleSubmitOTP = () => {
+    const combineOTP = otp.join("");
+    // Kiểm tra nếu mã OTP nhập đúng thì hiển thị thông báo thành công
     if (combineOTP === "123456") {
-      // alert("Đăng ký thành công!");
       toast.success("Thành công!");
       onCancelRegisterConfirmForm();
     } else {
+      // Hiển thị thông báo lỗi nếu mã OTP không đúng
       toast.error("Mã OTP không chính xác. Vui lòng nhập lại.");
     }
   };
 
-  const handleOtpInputOne = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length >= 1 && otp2Ref.current) {
-      otp2Ref.current.focus();
-    }
-    setOTP1(e.target.value);
-  };
-  const handleOtpInputTwo = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length >= 1 && otp3Ref.current) {
-      otp3Ref.current.focus();
-    }
-    handleBackspace(otp2Ref, otp1Ref);
-    setOTP2(e.target.value);
-  };
-  const handleOtpInputThree = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length >= 1 && otp4Ref.current) {
-      otp4Ref.current.focus();
-    }
-    handleBackspace(otp3Ref, otp2Ref);
-    setOTP3(e.target.value);
-  };
-  const handleOtpInputFour = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length >= 1 && otp5Ref.current) {
-      otp5Ref.current.focus();
-    }
-    handleBackspace(otp4Ref, otp3Ref);
-    setOTP4(e.target.value);
-  };
-  const handleOtpInputFive = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length >= 1 && otp6Ref.current) {
-      otp6Ref.current.focus();
-    }
-    handleBackspace(otp5Ref, otp4Ref);
-    setOTP5(e.target.value);
-  };
-  const handleOtpInputSix = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setOTP6(e.target.value);
-    handleBackspace(otp6Ref, otp5Ref);
-  };
-
+  // Hàm xử lý thay đổi giá trị của mã PIN
   const [pinCode, setPinCode] = useState("");
   const handlePinCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPinCode(e.target.value);
-  };
-
-  const handleBackspace = (
-    currentRef: React.RefObject<HTMLInputElement>,
-    previousRef: React.RefObject<HTMLInputElement>
-  ) => {
-    if (currentRef.current && currentRef.current.value === "") {
-      if (previousRef.current) {
-        previousRef.current.focus();
-      }
+    const value = e.target.value;
+    // Kiểm tra nếu giá trị nhập vào là số và không vượt quá 6 ký tự thì mới cập nhật vào state
+    if (!isNaN(Number(value)) && value.length <= 6) {
+      setPinCode(value);
     }
   };
+
+  // Hàm xử lý khi submit PIN
   const handleSubmitPin = () => {
+    // Kiểm tra nếu mã PIN nhập đúng thì hiển thị thông báo thành công
     if (pinCode === typePin) {
-      toast.success("");
+      toast.success("Thành công!");
       onCancelRegisterConfirmForm();
     } else {
+      // Hiển thị thông báo lỗi nếu mã PIN không đúng
       toast.error("Mã PIN không chính xác. Vui lòng thử lại.");
     }
   };
 
   return (
     <>
+      {/* JSX content */}
       <div className="fixed inset-0 flex items-center justify-center">
         <div className="bg-customDark3 absolute top-164 left-435 rounded-8">
           <div className="w-full h-[48px] md:px-5 py-5 rounded-tl-8 rounded-tr-8 flex items-center bg-customBlack">
@@ -211,57 +194,38 @@ export default function RegisterConfirmForm({
             <div className=" w-auto h-36 mx-4">
               <div className="otp-field bg-customBlack rounded-lg h-20 mt-3">
                 <div className="py-1">
-                  <input
-                    type="tel"
-                    maxLength={1}
-                    ref={otp1Ref}
-                    onChange={handleOtpInputOne}
-                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                  />
-                  <input
-                    type="text"
-                    maxLength={1}
-                    ref={otp2Ref}
-                    onChange={handleOtpInputTwo}
-                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                  />
-                  <input
-                    type="text"
-                    maxLength={1}
-                    ref={otp3Ref}
-                    onChange={handleOtpInputThree}
-                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                  />
-                  <input
-                    type="text"
-                    maxLength={1}
-                    ref={otp4Ref}
-                    onChange={handleOtpInputFour}
-                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                  />
-                  <input
-                    type="text"
-                    maxLength={1}
-                    ref={otp5Ref}
-                    onChange={handleOtpInputFive}
-                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                  />
-                  <input
-                    type="text"
-                    maxLength={1}
-                    ref={otp6Ref}
-                    onChange={handleOtpInputSix}
-                    className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
-                  />
+                  {otp.map((value, index) => (
+                    <input
+                      key={index}
+                      type="tel"
+                      maxLength={1}
+                      // kiểm tra xem el giá trị nhập vào có phải null không? nếu ko null thì gán
+                      ref={(el) => {
+                        if (el !== null) {
+                          otpRefs.current[index] = el;
+                        }
+                      }}
+                      value={value}
+                      // Gọi hàm xử lý khi thay đổi giá trị của ô input
+                      onChange={(e) =>
+                        handleOtpInputChange(index, e.target.value)
+                      }
+                      // Gọi hàm xử lý khi nhấn phím Backspace
+                      onKeyDown={(e) => handleOtpInputBackspace(index, e)}
+                      className="w-14 h-14 px-1 text-center rounded-md m-2 bg-customDark2 border-2 border-transparent focus:border-customGrayDark focus:outline-none"
+                    />
+                  ))}
                 </div>
                 <div>
                   <div className="flex justify-center mt-3">
+                    {/* Nút Huỷ */}
                     <button
                       onClick={onCancelRegisterConfirmForm}
                       className="w-60 h-10 mr-14 text-sm font-normal text-customYellow bg-neutral-800 border border-customYellow rounded-md"
                     >
                       Huỷ
                     </button>
+                    {/* Nút Xác nhận */}
                     <button
                       onClick={handleSubmitOTP}
                       className="w-60 h-10 rounded-md text-sm font-semibold text-customBrown bg-customYellow"
