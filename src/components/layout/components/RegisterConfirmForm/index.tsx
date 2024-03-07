@@ -80,7 +80,7 @@ export default function RegisterConfirmForm({
   const handleSubmitPin = () => {
     // Kiểm tra nếu mã PIN nhập đúng thì hiển thị thông báo thành công
     if (pinCode === typePin) {
-      toast.success("Thành công!");
+      toast.success("Quý khách đã đăng ký quyền mua thành công!");
       onCancelRegisterConfirmForm();
     } else {
       // Hiển thị thông báo lỗi nếu mã PIN không đúng
@@ -197,14 +197,48 @@ export default function RegisterConfirmForm({
               </div>
             </div>
             <div className="flex mr-4">
-              <span className="text-sm">Lưu mã</span>
+              <span className="text-sm">Lưu PIN/OTP</span>
               <img
                 src="/images/imgOTP/check box circle.png"
-                className="ml-2 w-4 h-4 mt-1"
+                className="ml-2 w-3 h-3 mt-1"
               />
             </div>
           </div>
-          {typeOTP === "OTP" ? (
+          {typePin === "123456" ? (
+            <div className=" w-572px h-36 mx-4">
+              <div className="mt-3">
+                <input
+                  type={showOTP ? "password" : "tel"}
+                  placeholder="Nhập mã PIN giao dịch hiện tại"
+                  className="w-full h-[37px] p-[8px 10px 8px 16px] rounded-[4px] border-1 gap-[130px] bg-customDark3 border-neutral-600 pl-3"
+                  onChange={handlePinCodeChange}
+                />
+              </div>
+              <div className="my-4">
+                <span className="text-customGrayDark">
+                  Quý khách vui lòng mở ứng dụng KB đã đăng ký OTP để lấy mã xác
+                  thực
+                </span>
+              </div>
+
+              <div className="flex justify-center">
+                {/* Nút Huỷ */}
+                <button
+                  onClick={onCancelRegisterConfirmForm}
+                  className="w-60 h-10 mr-24 text-sm font-normal text-customYellow bg-neutral-800 border border-customYellow rounded-md"
+                >
+                  Huỷ
+                </button>
+                {/* Nút Xác nhận */}
+                <button
+                  onClick={handleSubmitPin}
+                  className="w-60 h-10 rounded-md text-sm font-semibold text-customBrown bg-customYellow"
+                >
+                  Xác nhận
+                </button>
+              </div>
+            </div>
+          ) : (
             <div className=" w-auto h-36 mx-4">
               <div className="otp-field bg-customBlack rounded-lg h-20 mt-3">
                 <div className="py-1">
@@ -248,37 +282,6 @@ export default function RegisterConfirmForm({
                     </button>
                   </div>
                 </div>
-              </div>
-            </div>
-          ) : (
-            <div className="mt-3">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Nhập mã PIN giao dịch hiện tại"
-                  className="w-full h-[37px] p-[8px 10px 8px 16px] rounded-[4px] border-1 gap-[130px] bg-customDark3 border-neutral-600"
-                  onChange={handlePinCodeChange}
-                />
-              </div>
-              <div className="mt-3">
-                <span className="text-customGrayDark">
-                  Quý khách vui lòng mở ứng dụng đã đăng ký OTP để lấy mã xác
-                  thực
-                </span>
-              </div>
-              <div className="items-center mt-3">
-                <button
-                  onClick={onCancelRegisterConfirmForm}
-                  className="w-44 h-10 mr-2 text-sm font-normal text-customYellow bg-neutral-800 border border-customYellow rounded-md"
-                >
-                  Huỷ
-                </button>
-                <button
-                  onClick={handleSubmitPin}
-                  className="w-44 h-10 mr-2 text-sm font-normal border border-customYellow rounded-md text-customBrown bg-customYellow"
-                >
-                  Xác nhận
-                </button>
               </div>
             </div>
           )}
