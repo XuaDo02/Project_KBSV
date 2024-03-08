@@ -1,15 +1,22 @@
 import { ArrowDown2 } from "iconsax-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useOnClickOutside } from "usehooks-ts";
 
 export default function RegisterBuyHistory() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownTime, setIsDropdownTime] = useState(false);
   const [isDropdownStatus, setIsDropdownStatus] = useState(false);
+  const refDialogHistoryTrading = useRef(null);
+  const handleClickOutSideDialogTradinng = () => {
+    setIsDropdownTime(false);
+    setIsDropdownStatus(false);
+  };
+  useOnClickOutside(refDialogHistoryTrading, handleClickOutSideDialogTradinng);
 
   const toggleDropdownStatus = () => {
-    setIsDropdownStatus(!isDropdownOpen);
+    setIsDropdownStatus(!isDropdownStatus);
   };
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownTime(!isDropdownTime);
   };
   return (
     <>
@@ -17,22 +24,23 @@ export default function RegisterBuyHistory() {
         <div className=" h-9 w-52 rounded-md flex item-center border border-customBlack justify-center">
           <button className=" flex items-center">
             <span className="ml-2 text-sm text-customGrayDark">
-              Mã chứng khoán:{" "}
+              Mã chứng khoán:
             </span>
             <span className="ml-2 text-sm text-customGrayLight">Tất cả</span>
           </button>
         </div>
-        <div className=" h-9 w-40 rounded-md flex item-center border border-customBlack mx-3 justify-center">
-          <button className=" flex items-center">
-            <span className="ml-2 text-sm text-customGrayDark">
-              Trạng thái:
-            </span>
-          </button>
+        <div
+          className=" h-9 w-40 rounded-md flex item-center border border-customBlack mx-3 justify-center"
+          ref={refDialogHistoryTrading}
+        >
           <button
             className="flex pt-2 text-customGrayLight text-sm ml-2"
             onClick={toggleDropdownStatus}
           >
-            Tất cả
+            <span className="ml-2 text-sm text-customGrayDark">
+              Trạng thái:
+            </span>
+            <span className="ml-2 text-sm text-customGrayLight">Tất cả</span>
             <ArrowDown2 size="22" color="#d8d8d8" className="pl-2" />
           </button>
           {isDropdownStatus && (
@@ -49,17 +57,18 @@ export default function RegisterBuyHistory() {
             </div>
           )}
         </div>
-        <div className=" h-9 w-52 rounded-md flex item-center border border-customBlack justify-center">
-          <button className=" flex items-center">
+        <div
+          className=" h-9 w-52 rounded-md flex item-center border border-customBlack justify-center"
+          ref={refDialogHistoryTrading}
+        >
+          <button className="flex pt-2" onClick={toggleDropdown}>
             <span className="ml-2 text-sm text-customGrayDark">
               Khoảng thời gian:
             </span>
-          </button>
-          <button className="flex pt-2" onClick={toggleDropdown}>
             <span className="ml-2 text-sm text-customGrayLight">Tất cả</span>
             <ArrowDown2 size="22" color="#d8d8d8" className="pl-2" />
           </button>
-          {isDropdownOpen && (
+          {isDropdownTime && (
             <div className=" absolute bg-customDark3 mt-10 z-50 w-52 h-60 rounded-t-md">
               <div className="  py-2 hover:bg-customGray">
                 <label className="text-white ml-3 text-sm ">Tất cả</label>

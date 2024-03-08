@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import axios from "axios";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { TableData } from "src/types/tabledata";
+import { useOnClickOutside } from "usehooks-ts";
 
 // const query = "symbol";
 
@@ -13,7 +14,11 @@ export default function RegisterFitter({
   const [showForm, setShowForm] = useState(false);
   const [stockCodeInput, setStockCodeInput] = useState("");
   const [tableData, setTableData] = useState<TableData[]>([]);
-
+  const refDialogFitter = useRef(null);
+  const handleClickOutSideDialogTradinng = () => {
+    setShowForm(false);
+  };
+  useOnClickOutside(refDialogFitter, handleClickOutSideDialogTradinng);
   const handleApplyFilter = async () => {
     if (stockCodeInput === "symbol") {
       console.log("sendTableData:", sendTableData);
@@ -51,7 +56,7 @@ export default function RegisterFitter({
         </button>
       </div>
       {showForm && (
-        <div className="flex flex-col absolute bg-customDark3 rounded-md mt-4 z-50 w-96 h-36">
+        <div className="flex flex-col absolute bg-customDark3 rounded-md mt-4 z-50 w-96 h-36" ref={refDialogFitter}>
           <div className="flex mt-3">
             <label className="text-customGrayDark ml-3 text-sm mt-1">
               Mã chứng khoán

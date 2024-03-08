@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft2 } from "iconsax-react";
+import { useOnClickOutside } from "usehooks-ts";
 
 export default function Aside() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const refDialogTrading = useRef(null);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  const handleClickOutSideDialogTradinng = () => {
+    setIsDropdownOpen(false);
+  };
+
+  useOnClickOutside(refDialogTrading, handleClickOutSideDialogTradinng);
 
   const asideItems = [
     {
@@ -20,7 +28,7 @@ export default function Aside() {
     },
     {
       imgSrc: "/images/imgAside/Stock_trading.png",
-      text: "Giao dịch cổ phiếu",
+      text: "Giao dịch",
       isDropdown: true,
       dropDownLinks: [
         {
@@ -41,7 +49,8 @@ export default function Aside() {
         {
           imgSrc: "/images/imageMenu/message-edit.png",
           text: "Đăng ký quyền mua",
-          to: "/registerBuyTab"
+          to: "/registerBuyTab",
+          className: "bg-yellow-500"
         },
         {
           imgSrc: "/images/imageMenu/forward-item.png",
@@ -80,7 +89,7 @@ export default function Aside() {
   return (
     <>
       <aside className="w-24 h-full text-gray-300 bg-customDark2 text-sm ">
-        <ul className="py-2">
+        <ul className="py-2" ref={refDialogTrading}>
           {asideItems.map((item, index) => (
             <li
               key={index}
@@ -96,7 +105,7 @@ export default function Aside() {
                   {item.dropDownLinks.map((link, index) => (
                     <li
                       key={index}
-                      className="px-2 py-2 text-sm text-customGrayLight flex ml-2 hover:bg-customYellow hover:text-black"
+                      className="px-2 py-2 text-sm text-customGrayLight flex ml-2 hover:bg-customYellow hover:text-black "
                     >
                       <img src={link.imgSrc} alt={link.text} className="pr-4" />
                       <Link to={link.to}>{link.text}</Link>

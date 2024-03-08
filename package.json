@@ -32,6 +32,7 @@
     "react": "^18.2.0",
     "react-day-picker": "^8.2.1",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.4",
     "react-i18next": "^12.3.1",
     "react-otp-input": "^3.1.1",
     "react-redux": "^8.0.2",
@@ -40,6 +41,7 @@
     "redux-persist": "^6.0.0",
     "swiper": "^8.3.2",
     "tw-colors": "^1.2.6",
+    "usehooks-ts": "^2.16.0",
     "uuid": "^9.0.0",
     "vite-tsconfig-paths": "^3.5.0",
     "yup": "^0.32.11"
