@@ -3,8 +3,7 @@ export default function Header() {
     <>
       <div className="text-white flex justify-between items-center bg-customDark2 h-14 ">
         <div className="flex items-center ml-5">
-          <img src="/images/imgHeader/path20.png" className="mr-2" />
-          <h1 className="text-2xl">KB Securities</h1>
+          <img src="/images/imgHeader/KB.png" className="mr-2" />
           <button className=" w-16 h-5 mt-1 ml-10 text-sm text-customYellow bg-gradient-to-r from-customGrayDark to-customDark2 rounded-lg hover:from-transparent hover:to-gray-400">
             Tin mới
           </button>
