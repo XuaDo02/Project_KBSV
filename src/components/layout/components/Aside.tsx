@@ -105,7 +105,7 @@ export default function Aside() {
                   {item.dropDownLinks.map((link, index) => (
                     <li
                       key={index}
-                      className="px-2 py-2 text-sm text-customGrayLight flex ml-2 hover:bg-customYellow hover:text-black "
+                      className="px-2 py-2 text-sm text-customGrayLight flex pl-2 hover:bg-customYellow hover:text-customBrown hover:font-semibold"
                     >
                       <img src={link.imgSrc} alt={link.text} className="pr-4" />
                       <Link to={link.to}>{link.text}</Link>

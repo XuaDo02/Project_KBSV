@@ -21,11 +21,11 @@ export default function RegisterFitter({
   useOnClickOutside(refDialogFitter, handleClickOutSideDialogTrading);
   const handleApplyFilter = async () => {
     if (stockCodeInput === "symbol") {
-      console.log("sendTableData:", sendTableData);
+      // console.log("sendTableData:", sendTableData);
       const res = await axios.get(
         `https://64f015e48a8b66ecf779241a.mockapi.io/api/WTS`
       );
-      console.log("res =>>", res);
+      // console.log("res =>>", res);
       setTableData(res.data);
       sendTableData(res.data);
       setShowForm(false);

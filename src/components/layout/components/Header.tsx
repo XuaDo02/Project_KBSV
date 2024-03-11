@@ -9,10 +9,12 @@ export default function Header() {
       </div>
 
       {/* Phần 2: "Tin mới" */}
-      <div className="col-span-2 flex items-center justify-start">
-        <button className="w-32 h-5 text-sm text-customYellow bg-gradient-to-r from-customGrayDark to-customDark2 rounded-lg hover:from-transparent hover:to-gray-400">
+      <div className="col-span-2 flex items-center justify-start relative">
+        <button className="relative z-10 w-32 h-5 text-sm text-customYellow bg-gradient-to-r from-customGrayDark to-customDark2 rounded-lg hover:from-transparent hover:to-gray-400">
           Tin mới
+          <div className="absolute top-0 right-0 transform translate-x-1/6 -translate-y-1/6 bg-customRed rounded-full w-2 h-2"></div>
         </button>
+
         <div>
           <Marquee>
             I can be a React component, multiple React components
@@ -36,16 +38,22 @@ export default function Header() {
                 />
               </button>
             </div>
-            <div className="col-span-1 pl-2">
+            <div className="col-span-1 ml-2">
               <img src="/images/imgHeader/lock.png" />
             </div>
-            <div className="col-span-1 pl-2">
-              <img src="/images/imgHeader/notification.png" />
+            <div className="col-span-1 ml-2 relative w-6 h-6">
+              <img
+                className="w-full h-full"
+                src="/images/imgHeader/notification.png"
+              />
+              <div className="text-center absolute bg-customRed top-0 right-0 rounded-full w-3 h-3 flex justify-center items-center text-xs">
+                9
+              </div>
             </div>
-            <div className="col-span-1 pl-2">
+            <div className="col-span-1 ml-2">
               <img src="/images/imgHeader/setting-2.png" />
             </div>
-            <div className="col-span-1 pl-1">
+            <div className="col-span-1 ml-1">
               <img src="/images/imgHeader/message-question.png" />
             </div>
           </div>
