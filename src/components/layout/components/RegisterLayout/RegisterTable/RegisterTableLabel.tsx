@@ -1,7 +1,7 @@
 const RegisterTableLabel = () => {
   return (
     <div className="flex relative h-35px ">
-      <div className="grid grid-cols-12 text-customGrayLight text-center items-center w-full text-xs py-1">
+      <div className="grid grid-cols-12 text-customGrayLight text-center items-center w-full text-sm py-1">
         <div className="grid col-span-4 grid-cols-8">
           <div className="col-span-1">Mã</div>
           <div className="col-span-1">Tỷ lệ</div>

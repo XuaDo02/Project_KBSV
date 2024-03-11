@@ -1,6 +1,8 @@
 import { ArrowDown2 } from "iconsax-react";
 import { useRef, useState } from "react";
 import { useOnClickOutside } from "usehooks-ts";
+import RegisterTableTradingData from "./RegisterTableHistory/RegisterTableTradingData";
+import RegisterTableTradingLabel from "./RegisterTableHistory/RegisterTableTradingLabel";
 
 export default function RegisterBuyHistory() {
   const [isDropdownTime, setIsDropdownTime] = useState(false);
@@ -44,7 +46,7 @@ export default function RegisterBuyHistory() {
             <ArrowDown2 size="22" color="#d8d8d8" className="pl-2" />
           </button>
           {isDropdownStatus && (
-            <div className=" absolute bg-customDark3 mt-10 z-50 w-40 h-30 rounded-t-md">
+            <div className=" absolute bg-customBlack mt-10 z-50 w-40 h-30 rounded-t-md">
               <div className="  py-2 hover:bg-customGray">
                 <label className="text-white ml-3 text-sm ">Tất cả</label>
               </div>
@@ -69,7 +71,7 @@ export default function RegisterBuyHistory() {
             <ArrowDown2 size="22" color="#d8d8d8" className="pl-2" />
           </button>
           {isDropdownTime && (
-            <div className=" absolute bg-customDark3 mt-10 z-50 w-52 h-60 rounded-t-md">
+            <div className=" absolute bg-customBlack mt-10 z-50 w-52 h-60 rounded-t-md">
               <div className="  py-2 hover:bg-customGray">
                 <label className="text-white ml-3 text-sm ">Tất cả</label>
               </div>
@@ -93,6 +95,11 @@ export default function RegisterBuyHistory() {
         </div>
       </div>
       <hr className=" border-neutral-700 mt-5 " />
+      <div className="py-3">
+        <RegisterTableTradingLabel />
+      </div>
+      <hr className=" border-neutral-700 " />
+      <RegisterTableTradingData />
     </>
   );
 }

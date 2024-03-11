@@ -15,10 +15,10 @@ export default function RegisterFitter({
   const [stockCodeInput, setStockCodeInput] = useState("");
   const [tableData, setTableData] = useState<TableData[]>([]);
   const refDialogFitter = useRef(null);
-  const handleClickOutSideDialogTradinng = () => {
+  const handleClickOutSideDialogTrading = () => {
     setShowForm(false);
   };
-  useOnClickOutside(refDialogFitter, handleClickOutSideDialogTradinng);
+  useOnClickOutside(refDialogFitter, handleClickOutSideDialogTrading);
   const handleApplyFilter = async () => {
     if (stockCodeInput === "symbol") {
       console.log("sendTableData:", sendTableData);

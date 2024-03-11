@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { TableData } from "src/types/tabledata";
 import { Eye, EyeSlash } from "iconsax-react";
@@ -23,6 +23,12 @@ export default function RegisterConfirmForm({
   const [otp, setOTP] = useState<string[]>(Array(6).fill(""));
   // Khai báo một mảng refs để lưu trữ tham chiếu đến các ô input OTP
   const otpRefs = useRef<HTMLInputElement[]>(Array(6).fill(null));
+
+  const [isConfirmationEnabled, setIsConfirmationEnabled] = useState(false);
+  useEffect(() => {
+    const isAllOtpFilled = otp.every((value) => value !== "");
+    setIsConfirmationEnabled(isAllOtpFilled);
+  }, [otp]);
 
   // Hàm xử lý sự kiện thay đổi giá trị của ô input OTP
   const handleOtpInputChange = (index: number, value: string) => {
@@ -242,7 +248,12 @@ export default function RegisterConfirmForm({
                     {/* Nút Xác nhận */}
                     <button
                       onClick={handleSubmitOTP}
-                      className="w-60 h-10 rounded-md text-sm font-semibold text-customBrown bg-customYellow"
+                      className={`w-60 h-10 rounded-md text-sm font-normal ${
+                        isConfirmationEnabled
+                          ? "bg-customYellow text-customDarkGray"
+                          : "bg-customGray text-customWhite"
+                      }`}
+                      disabled={!isConfirmationEnabled}
                     >
                       Xác nhận
                     </button>
